@@ -30,7 +30,7 @@ public class LoginCheck extends HttpServlet {
 		String password = request.getParameter("password");
 		out.println("<h1>넘어온 아이디 : " + id + "</h1>");
 		out.print("<h1>넘어온 아이디 : " + password + "</h1>");
-		out.close();
+		out.close(); 
 	}
 
 

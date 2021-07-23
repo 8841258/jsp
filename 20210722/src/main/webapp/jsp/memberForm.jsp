@@ -17,7 +17,7 @@
 					<table border="1">
 						<tr>
 							<th width="200">아 이 디</th>
-							<td width="300"><input type="text" id="od" name="id"></td>
+							<td width="300"><input type="text" id="id" name="id"></td>
 						</tr>
 						<tr>
 							<th width="200">패스워드</th>
