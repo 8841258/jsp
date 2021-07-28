@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import co.pooh.Lms.command.Command;
 import co.pooh.Lms.command.Login;
 import co.pooh.Lms.command.LoginForm;
+import co.pooh.Lms.command.Logout;
 import co.pooh.Lms.command.Main;
+import co.pooh.Lms.command.SearchSns;
+import co.pooh.Lms.command.SnsList;
 
 /**
  * Servlet implementation class FrontController
@@ -36,6 +39,9 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new Main());
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
+		map.put("/logout.do", new Logout());
+		map.put("/snsList.do", new SnsList());
+		map.put("/searchSns.do", new SearchSns());
 	}
 
 	/**
