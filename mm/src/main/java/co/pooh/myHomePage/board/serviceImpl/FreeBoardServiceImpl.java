@@ -59,29 +59,39 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	}
 
 	@Override
-	public FreeBoardVO freeBoardSelect(FreeBoardVO vo) {
-		sql = "select * from freeboard where freeno = ?";
+	public List<FreeBoardVO> freeBoardSelect(int no) {
+		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+		FreeBoardVO vo;
+		sql = "select a.*, b.freecwriter, b.freeccontent, b.freecdate\r\n"
+				+ "from freeboard a left outer join freecomment b\r\n"
+				+ "on (a.freeno = b.freeno)\r\n"
+				+ "where a.freeno=?";
 		try {
 			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getFreeNo());
+			psmt.setInt(1, no);
 			rs = psmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
+				vo = new FreeBoardVO();
 				vo.setFreeNo(rs.getInt("freeno"));
 				vo.setFreeTitle(rs.getString("freetitle"));
 				vo.setFreeDate(rs.getDate("freedate"));
 				vo.setFreeWriter(rs.getString("freewriter"));
 				vo.setFreeContent(rs.getString("freecontent"));
 				vo.setFreeCnum(rs.getString("freecnum"));
-				vo.setHit(rs.getInt("freehit"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setFreeCwriter(rs.getString("freecwriter"));
+				vo.setFreeCcontent(rs.getString("freeccontent"));
+				vo.setFreeCdate(rs.getDate("freecdate"));
 				hitUpdate(vo.getFreeNo());
+				list.add(vo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return vo;
+		return list;
 	}
 
 	private void hitUpdate(int id) {

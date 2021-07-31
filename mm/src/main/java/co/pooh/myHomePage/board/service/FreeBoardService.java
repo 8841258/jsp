@@ -8,7 +8,7 @@ public interface FreeBoardService {
 	
 	List<FreeBoardVO> freeBoardSelectList();
 	
-	FreeBoardVO freeBoardSelect(FreeBoardVO vo);
+	List<FreeBoardVO> freeBoardSelect(int no);
 	
 	int freeBoardInsert(FreeBoardVO vo);
 	

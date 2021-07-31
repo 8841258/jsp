@@ -16,7 +16,7 @@
 		<!-- ============================================================== -->
 		<div class="col-12">
 			<div class="card">
-				<h5 class="card-header">Basic Table</h5>
+				<h5 class="card-header">자유 게시판</h5>
 				<div class="card-body">
 					<table class="table">
 						<thead>
@@ -50,5 +50,6 @@
 	</div>
 	</div>
 
-<a href="#" class="btn btn-secondary">글쓰기</a>
+<div align="right"><a href="freeBoardInsert.do" class="btn btn-secondary"><i
+							class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기</a></div>
 </div>

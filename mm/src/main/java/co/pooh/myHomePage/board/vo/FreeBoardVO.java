@@ -2,7 +2,7 @@ package co.pooh.myHomePage.board.vo;
 
 import java.sql.Date;
 
-public class FreeBoardVO {
+public class FreeBoardVO extends FreeCommentVO {
 	private int freeNo;
 	private String freeTitle;
 	private Date freeDate;
