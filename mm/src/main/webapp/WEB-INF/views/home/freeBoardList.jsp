@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+	function getRecord(n) {
+		frm.freeNo.value=n;
+		frm.submit();
+	}
+</script>
 <div class="container-fluid  dashboard-content">
 
 
@@ -23,13 +29,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="board" items="list">
-								<tr>
+							<c:forEach var="board" items="${list }">
+								<tr onclick="getRecord(${board.freeNo})">
 									<th scope="row">${board.freeNo }</th>
-									<td>${board.freeTitle }</td>
+									<td><span>${board.freeTitle }</span><span class="badge badge-secondary float-right">${board.freeCnum }</span></td>
 									<td>${board.freeDate }</td>
-									<td>@${board.freeWriter }</td>
-									<td>@${board.hit }</td>
+									<td>${board.freeWriter }</td>
+									<td>${board.hit }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -37,7 +43,12 @@
 				</div>
 			</div>
 		</div>
-
+	<div>
+		<form id="frm" action="freeBoardSelect.do" method="POST">
+			<input type="hidden" id="freeNo" name="freeNo">
+		</form>
+	</div>
 	</div>
 
+<a href="#" class="btn btn-secondary">글쓰기</a>
 </div>

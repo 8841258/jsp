@@ -28,7 +28,7 @@
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
 		      	<h3 class="text-center mb-0">Welcome</h3>
 		      	<p class="text-center">Sign in by entering the information below</p>
-						<form action="login.do" class="login-form">
+						<form action="login.do" class="login-form" method="post">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
 		      			<input type="text" name="id" class="form-control" placeholder="Id" required>

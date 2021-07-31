@@ -4,7 +4,7 @@
 <!-- ============================================================== -->
 <div class="dashboard-header">
 	<nav class="navbar navbar-expand-lg bg-white fixed-top">
-		<a class="navbar-brand" href="index.html">Concept</a>
+		<a class="navbar-brand" href="home.do">Fan page</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -21,7 +21,7 @@
 					<div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
 						aria-labelledby="navbarDropdownMenuLink2">
 						<div class="nav-user-info">
-							<h5 class="mb-0 text-white nav-user-name">John Abraham</h5>
+							<h5 class="mb-0 text-white nav-user-name">${login.nickname }</h5>
 							<span class="status"></span><span class="ml-2">Available</span>
 						</div>
 						<a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
