@@ -31,11 +31,11 @@
 						<form action="login.do" class="login-form">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" placeholder="Id" required>
+		      			<input type="text" name="id" class="form-control" placeholder="Id" required>
 		      		</div>
 	            <div class="form-group">
 	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-	              <input type="password" class="form-control" placeholder="Password" required>
+	              <input type="password" name="password" class="form-control" placeholder="Password" required>
 	            </div>
 	            <div class="form-group">
 	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">로그인</button>
