@@ -26,8 +26,13 @@ public class Login implements Command {
 		
 		String page = "";
 		if (vo.getNickname() != null) {
-			session.setAttribute("nickname", vo.getName());
+			session.setAttribute("id", vo.getId());
+			session.setAttribute("password", vo.getPassword());
+			session.setAttribute("nickname", vo.getNickname());
+			session.setAttribute("name", vo.getName());
+			session.setAttribute("email", vo.getEmail());
 			session.setAttribute("author", vo.getAuthor());
+			session.setAttribute("state", vo.getState());
 			request.setAttribute("login", vo);
 			
 			page = "home.do";
