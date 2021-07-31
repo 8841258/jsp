@@ -25,11 +25,14 @@
 <body>
 
 	<div class="dashboard-main-wrapper">
-			<div><tiles:insertAttribute name="header" /></div>
-			<div><tiles:insertAttribute name="menu" /></div>
-			<div><tiles:insertAttribute name="body" /></div>
+		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="menu" />
+		<div class="dashboard-wrapper">
+			<tiles:insertAttribute name="body" />
+			<tiles:insertAttribute name="footer" />
+		</div>
 	</div>
-	
+
 	<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 	<!-- bootstap bundle js -->
 	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
