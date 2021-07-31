@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.pooh.myHomePage.command.Home;
 import co.pooh.myHomePage.command.Login;
 import co.pooh.myHomePage.command.LoginForm;
+import co.pooh.myHomePage.command.Logout;
 import co.pooh.myHomePage.command.MemberInsert;
 import co.pooh.myHomePage.command.MemberInsertForm;
 import co.pooh.myHomePage.common.Command;
@@ -33,6 +34,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsertForm.do", new MemberInsertForm());
 		map.put("/login.do", new Login());
 		map.put("/memberInsert.do", new MemberInsert());
+		map.put("/logout.do", new Logout());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
