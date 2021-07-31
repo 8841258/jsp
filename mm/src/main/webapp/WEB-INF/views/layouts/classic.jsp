@@ -25,15 +25,9 @@
 <body>
 
 	<div class="dashboard-main-wrapper">
-		<table border="1">
-			<tr>
-				<td colspan="2"><tiles:insertAttribute name="header" /></td>
-			</tr>
-			<tr>
-				<td><tiles:insertAttribute name="menu" /></td>
-				<td><tiles:insertAttribute name="body" /></td>
-			</tr>
-		</table>
+			<div><tiles:insertAttribute name="header" /></div>
+			<div><tiles:insertAttribute name="menu" /></div>
+			<div><tiles:insertAttribute name="body" /></div>
 	</div>
 	
 	<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
