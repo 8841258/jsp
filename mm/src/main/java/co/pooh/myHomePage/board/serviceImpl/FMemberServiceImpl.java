@@ -15,15 +15,18 @@ public class FMemberServiceImpl implements FMemberService {
 	   private ResultSet rs;
 	   String sql;
 	   
-	   private void close() {
-	      try {
-	         if(rs != null) rs.close();
-	         if(psmt != null) psmt.close();
-	         if(conn != null) conn.close();
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      }
-	   }
+		private void close() {
+			try {
+				if (rs != null)
+					rs.close();
+				if (psmt != null)
+					psmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 
 	   @Override
 	   public FMemberVO login(FMemberVO vo) {
@@ -60,7 +63,6 @@ public class FMemberServiceImpl implements FMemberService {
 	         psmt.setString(5, vo.getEmail());
 	         r = psmt.executeUpdate();
 	      } catch (SQLException e) {
-	         // TODO Auto-generated catch block
 	         e.printStackTrace();
 	      } finally {
 	         close();

@@ -5,6 +5,7 @@ import java.util.List;
 import co.pooh.myHomePage.board.vo.FreeBoardVO;
 
 public interface FreeBoardService {
+	
 	List<FreeBoardVO> freeBoardSelectList();
 	
 	FreeBoardVO freeBoardSelect(FreeBoardVO vo);
@@ -14,4 +15,5 @@ public interface FreeBoardService {
 	int freeBoardUpdate(FreeBoardVO vo);
 	
 	int freeBoardDelete(FreeBoardVO vo);
+	
 }
