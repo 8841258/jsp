@@ -34,7 +34,7 @@
 						data-target="#submenu-4" aria-controls="submenu-4"><i
 							class="fab fa-fw fa-wpforms"></i>Forms</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="test.do"><i
+					<li class="nav-item"><a class="nav-link" href="freeBoardList.do"><i
 							class="fas fa-fw fa-table"></i>Tables</a></li>
 
 				</ul>

@@ -47,7 +47,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 				vo.setFreeDate(rs.getDate("freedate"));
 				vo.setFreeWriter(rs.getString("freewriter"));
 				vo.setFreeCnum(rs.getString("freecnum"));
-				vo.setHit(rs.getInt("freehit"));
+				vo.setHit(rs.getInt("hit"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -74,6 +74,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 				vo.setFreeContent(rs.getString("freecontent"));
 				vo.setFreeCnum(rs.getString("freecnum"));
 				vo.setHit(rs.getInt("freehit"));
+				hitUpdate(vo.getFreeNo());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,6 +82,22 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 			close();
 		}
 		return vo;
+	}
+
+	private void hitUpdate(int id) {
+		// TODO 조회수 증가
+		// finally, connection 필요 없다. 이미 위에서 한건조회할때 하기 때문!
+		sql = "update freeboard set hit=hit+1 where freeno=?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
