@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${login.nickname } : ${login.author }
+
 </body>
 </html>

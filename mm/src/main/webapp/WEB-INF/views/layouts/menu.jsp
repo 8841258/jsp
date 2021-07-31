@@ -41,7 +41,7 @@
 							data-target="#submenu-4" aria-controls="submenu-4"><i
 								class="fab fa-fw fa-wpforms"></i>Forms</a>
 							
-						<li class="nav-item"><a class="nav-link" href="#"
+						<li class="nav-item"><a class="nav-link" href="test.do"
 							data-toggle="collapse" aria-expanded="false"
 							data-target="#submenu-5" aria-controls="submenu-5"><i
 								class="fas fa-fw fa-table"></i>Tables</a>
