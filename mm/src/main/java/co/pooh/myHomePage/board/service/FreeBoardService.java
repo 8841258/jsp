@@ -16,4 +16,6 @@ public interface FreeBoardService {
 	
 	int freeBoardDelete(FreeBoardVO vo);
 	
+	public FreeBoardVO freeBoardSelect2(int r);
+	
 }

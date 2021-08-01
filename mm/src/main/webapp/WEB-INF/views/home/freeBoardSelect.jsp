@@ -10,12 +10,6 @@ ${board[0].freeTitle } : ${board[0].freeDate } : ${board[0].freeWriter } : ${boa
 ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 </c:forEach> -->
 
-<script>
-function freeBoardDelete() {
-	
-}
-</script>
-
 <div class="container-fluid  dashboard-content">
 
 	<div class="row">
@@ -44,6 +38,23 @@ function freeBoardDelete() {
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-8" align="right">
+				<button type="button" onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'" class="btn btn-secondary btn-sm">
+					<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
+				</button>
+				<button type="button" onclick="location.href='freeBoardDelete.do?freeno=${board[0].freeNo}'" class="btn btn-secondary btn-sm">
+					<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
+				</button>
+			<button type="button"
+				onclick="location.href='freeBoardInsertForm.do'"
+				class="btn btn-secondary btn-sm">
+				<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기
+			</button>
+		</div>
+	</div>
+
 
 
 	<div class="email-list-item email-list-item--unread">
@@ -63,15 +74,4 @@ function freeBoardDelete() {
 		</div>
 	</div>
 
-
-	<div align="right">
-		<button type="button" onclick="freeBoardDelete"
-			class="btn btn-secondary btn-sm">
-			<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;삭제
-		</button>
-		<button type="button" onclick="location.href='freeBoardInsertForm.do'"
-			class="btn btn-secondary btn-sm">
-			<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기
-		</button>
-	</div>
 </div>

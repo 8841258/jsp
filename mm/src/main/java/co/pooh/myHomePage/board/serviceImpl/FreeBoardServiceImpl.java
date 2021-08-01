@@ -63,8 +63,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
 		FreeBoardVO vo;
 		sql = "select a.*, b.freecwriter, b.freeccontent, b.freecdate\r\n"
-				+ "from freeboard a left outer join freecomment b\r\n"
-				+ "on (a.freeno = b.freeno)\r\n"
+				+ "from freeboard a left outer join freecomment b\r\n" + "on (a.freeno = b.freeno)\r\n"
 				+ "where a.freeno=?";
 		try {
 			conn = DAO.getConnection();
@@ -134,11 +133,11 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		int r = 0;
 		sql = "update freeboard set freetitle = ?, freecontent = ? where freeno = ?";
 		try {
+			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getFreeTitle());
 			psmt.setString(2, vo.getFreeContent());
 			psmt.setInt(3, vo.getFreeNo());
-			r = psmt.executeUpdate();
 			r = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,6 +152,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		int r = 0;
 		sql = "delete from freeboard where freeno = ?";
 		try {
+			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, vo.getFreeNo());
 			r = psmt.executeUpdate();
@@ -162,6 +162,34 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 			close();
 		}
 		return r;
+	}
+
+	// 수정에서 불러오는 용도의 한건조회
+	@Override
+	public FreeBoardVO freeBoardSelect2(int r) {
+		FreeBoardVO vo = null;
+		sql = "select freeno, freetitle, freecontent from freeboard where freeno=?";
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, r);
+			rs = psmt.executeQuery();
+
+			// 결과가 한 행밖에 없다. rs가 있으면~ rs가 없으면~
+			if (rs.next()) {
+				vo = new FreeBoardVO();
+				vo.setFreeNo(rs.getInt("freeno"));
+				vo.setFreeTitle(rs.getString("freetitle"));
+				vo.setFreeContent(rs.getString("freecontent"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
 	}
 
 }
