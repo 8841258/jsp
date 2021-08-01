@@ -35,7 +35,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	public List<FreeBoardVO> freeBoardSelectList() {
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
 		FreeBoardVO vo;
-		sql = "select * from freeboard";
+		sql = "select * from freeboard order by freeno desc";
 		try {
 			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
@@ -115,11 +115,11 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		int r = 0;
 		sql = "insert into freeboard (freeno, freetitle, freewriter, freecontent) values (freeb_seq.nextval, ?, ?, ?)";
 		try {
+			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getFreeNo());
-			psmt.setString(2, vo.getFreeTitle());
-			psmt.setString(3, vo.getFreeWriter());
-			psmt.setString(4, vo.getFreeContent());
+			psmt.setString(1, vo.getFreeTitle());
+			psmt.setString(2, vo.getFreeWriter());
+			psmt.setString(3, vo.getFreeContent());
 			r = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

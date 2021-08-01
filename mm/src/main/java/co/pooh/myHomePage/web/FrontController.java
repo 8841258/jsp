@@ -17,6 +17,7 @@ import co.pooh.myHomePage.command.Logout;
 import co.pooh.myHomePage.command.MemberAccount;
 import co.pooh.myHomePage.command.MemberInsert;
 import co.pooh.myHomePage.command.MemberInsertForm;
+import co.pooh.myHomePage.command.FreeBoardInsert;
 import co.pooh.myHomePage.command.FreeBoardInsertForm;
 import co.pooh.myHomePage.command.FreeBoardList;
 import co.pooh.myHomePage.command.FreeBoardSelect;
@@ -43,6 +44,7 @@ public class FrontController extends HttpServlet {
 		map.put("/freeBoardSelect.do", new FreeBoardSelect());
 		map.put("/memberAccount.do", new MemberAccount());
 		map.put("/freeBoardInsertForm.do", new FreeBoardInsertForm());
+		map.put("/freeBoardInsert.do", new FreeBoardInsert());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -10,6 +10,12 @@ ${board[0].freeTitle } : ${board[0].freeDate } : ${board[0].freeWriter } : ${boa
 ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 </c:forEach> -->
 
+<script>
+function freeBoardDelete() {
+	
+}
+</script>
+
 <div class="container-fluid  dashboard-content">
 
 	<div class="row">
@@ -59,6 +65,10 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 
 
 	<div align="right">
+		<button type="button" onclick="freeBoardDelete"
+			class="btn btn-secondary btn-sm">
+			<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;삭제
+		</button>
 		<button type="button" onclick="location.href='freeBoardInsertForm.do'"
 			class="btn btn-secondary btn-sm">
 			<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기
