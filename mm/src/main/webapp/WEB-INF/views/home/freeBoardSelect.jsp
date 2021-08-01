@@ -46,8 +46,7 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 	</div>
 	<div class="row">
 		<div class="col-sm-4">
-			<button type="button"
-				onclick="location.href='freeBoardList.do'"
+			<button type="button" onclick="location.href='freeBoardList.do'"
 				class="btn btn-secondary btn-sm">
 				<i class="fas fa-list-ul"></i>&nbsp;&nbsp;목록
 			</button>
@@ -82,8 +81,14 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 			<div class="card">
 				<c:forEach var="board" items="${board }">
 					<div class="card-body border-bottom">
-						<span class="lead">${board.freeCwriter }</span>&nbsp;&nbsp; <span
-							class="small">${board.freeCdate }</span><br>
+						<div class="row">
+							<div class="col-sm-6">
+								<span class="lead">${board.freeCwriter }</span>&nbsp;&nbsp;<span
+									class="small">${board.freeCdate }</span>
+							</div>
+							<div class="col-sm-6" align="right">삭제</div>
+						</div>
+						<br>
 						<div class="mt-2">${board.freeCcontent }</div>
 					</div>
 				</c:forEach>
