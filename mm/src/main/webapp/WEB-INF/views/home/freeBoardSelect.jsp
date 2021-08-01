@@ -11,7 +11,16 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 </c:forEach> -->
 
 <div class="container-fluid  dashboard-content">
-
+	<div class="row">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<div class="page-header">
+				<h2 class="pageheader-title">자유 게시판</h2>
+				<p class="pageheader-text">
+					여러분이 하고 싶은 말을 자유롭게 남겨주세요!<br>욕설 및 비방성 게시글은 삼가주세요.
+				</p>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<!-- ============================================================== -->
 		<!-- basic table -->
@@ -19,13 +28,10 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 		<div class="col-12">
 			<div class="card">
 				<h5 class="card-header">
-					<span class="from">자유 게시판</span>
+					<span class="from">${board[0].freeTitle }</span>
 				</h5>
 				<div class="card-body">
 					<div>
-						<div>
-							<span>${board[0].freeTitle }</span>
-						</div>
 						<div align="right">${board[0].freeDate },
 							${board[0].freeWriter }&nbsp;&nbsp;&nbsp;&nbsp;<i
 								class="far fa-comment-alt"></i>&nbsp;${board[0].freeCnum }
@@ -33,13 +39,19 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 						</div>
 
 					</div>
-					<div>${board[0].freeContent }</div>
+					<div class="mt-3">${board[0].freeContent }</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<button type="button"
+				onclick="location.href='freeBoardList.do'"
+				class="btn btn-secondary btn-sm">
+				<i class="fas fa-list-ul"></i>&nbsp;&nbsp;목록
+			</button>
+		</div>
 		<div class="col-sm-8 mb-4" align="right">
 			<button type="button"
 				onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'"
@@ -63,14 +75,20 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 
 
 
+
+
 	<div class="row">
 		<div class="col-12">
 			<div class="card">
 				<c:forEach var="board" items="${board }">
-					<div class="card-body border-bottom">${board.freeCwriter } :
-						${board.freeCcontent } : ${board.freeCdate }</div>
+					<div class="card-body border-bottom">
+						<span class="lead">${board.freeCwriter }</span>&nbsp;&nbsp; <span
+							class="small">${board.freeCdate }</span><br>
+						<div class="mt-2">${board.freeCcontent }</div>
+					</div>
 				</c:forEach>
-
+			</div>
+			<div class="row">
 				<div class="card-body">
 					<textarea class="form-control mb-3" name="ccontent"
 						placeholder="댓글을 입력하세요" rows="4"></textarea>
@@ -83,7 +101,10 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 			</div>
 		</div>
 	</div>
+
+
 </div>
+
 
 <div class="email-list-item email-list-item--unread">
 	<div class="email-list-actions">

@@ -8,7 +8,16 @@
 	}
 </script>
 <div class="container-fluid  dashboard-content">
-
+	<div class="row">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<div class="page-header">
+				<h2 class="pageheader-title">자유 게시판</h2>
+				<p class="pageheader-text">
+					여러분이 하고 싶은 말을 자유롭게 남겨주세요!<br>욕설 및 비방성 게시글은 삼가주세요.
+				</p>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<!-- ============================================================== -->
@@ -16,7 +25,6 @@
 		<!-- ============================================================== -->
 		<div class="col-12">
 			<div class="card">
-				<h5 class="card-header">자유 게시판</h5>
 				<div class="card-body">
 					<table class="table">
 						<thead>
