@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -32,39 +33,36 @@
 	<div class="content-container">
 		<div class="chat-module">
 			<div class="chat-module-top">
-				<form>
-					<div class="input-group input-group-round">
-						<div class="input-group-prepend">
-							<span class="input-group-text"> <i class="fas fa-search"></i>
-							</span>
-						</div>
-						<input type="search" class="form-control filter-list-input"
-							placeholder="Search messege" aria-label="Search Chat">
-					</div>
-				</form>
 				<div class="chat-module-body">
-					<div class="media chat-item">
-						<img alt="William" src="../assets/images/avatar-1.jpg"
-							class="rounded-circle user-avatar-lg">
-						<div class="media-body">
-							<div class="chat-item-title">
-								<span class="chat-item-author">William</span> <span>4
-									days ago</span>
-							</div>
-							<div class="chat-item-body">
-								<p>Hey guys, Phasellus imperdiet arcu venenatis, malesuada
-									nulla a, porta sem. Curabitur nec massa ultrices, consequat
-									erat sit amet, luctus justo. Brand Concept &amp; Design!</p>
+					<c:forEach var="board" items="${list }">
+						<div class="media chat-item">
+							<img alt="${board.toWriter }" src="../assets/images/avatar-1.jpg"
+								class="rounded-circle user-avatar-lg">
+							<div class="media-body">
+								<div class="chat-item-title">
+									<span class="chat-item-author">${board.toWriter }</span> <span>${board.toDate }</span>
+								</div>
+								<div class="chat-item-body">
+									<form id="frm" name="frm" action="toBoardDelete.do"
+										method="post">
+										<span class="chat-item-author">${board.toContent }</span> <span>
+											<button class="btn btn-sm btn-outline-light">
+												<i class="far fa-trash-alt"></i>
+											</button>
+										</span>
+									</form>
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="chat-module-bottom">
-				<form class="chat-form">
-					<textarea class="form-control" placeholder="Type message" rows="1"></textarea>
+				<form class="chat-form" id="frm" name="frm" method="post">
+					<textarea class="form-control" id="tocontent" name="tocontent"
+						placeholder="Type message" rows="1"></textarea>
 					<div class="chat-form-buttons">
-						<button type="button" class="btn btn-link">
+						<button type="submit" class="btn btn-link">
 							<i class="far fa-smile"></i>
 						</button>
 						<div class="custom-file custom-file-naked">
@@ -89,5 +87,33 @@
 
 	<script src="../assets/vendor/dropzone/dropzone.js"></script>
 	<script src="../assets/libs/js/main-js.js"></script>
+	<script>
+		$(function() {
+			$('#submit').on(
+					"click",
+					function() {
+
+						var form1 = $("#frm").serialize();
+
+						console.log(form1);
+						$.ajax({
+							type : "post",
+							url : "/toBoardInsert.do", // 수정하기
+							data : form1,
+							dataType : 'json',
+							success : function(data) {
+								alert("success");
+								console.log(data);
+							},
+							error : function(request, status, error) {
+								console.log("code:" + request.status + "\n"
+										+ "message:" + request.responseText
+										+ "\n" + "error:" + error);
+
+							}
+						});
+					});
+		});
+	</script>
 </body>
 </html>

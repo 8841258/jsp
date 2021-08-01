@@ -30,15 +30,15 @@
 						class="rounded-circle user-avatar-xxl">
 				</div>
 				<div class="text-center">
-					<h2 class="font-24 mb-0">${account.name }</h2>
-					<p>Pocket Monster @${account.nickname }</p>
+					<h2 class="font-24 mb-0">${account.nickname }</h2>
+					<p>Pocket Monster @${account.id }</p>
 				</div>
 			</div>
 			<div class="card-body border-top">
 				<h3 class="font-16">Information</h3>
 				<div class="">
 					<ul class="list-unstyled mb-0">
-						<li class="mb-2"><i class="fas fa-fw fa-id-badge mr-2"></i>${account.id }</li>
+						<li class="mb-2"><i class="fas fa-fw fa-id-badge mr-2"></i>${account.name }</li>
 						<li class="mb-0"><i class="fas fa-fw fa-envelope mr-2"></i>${account.email }</li>
 					</ul>
 				</div>
