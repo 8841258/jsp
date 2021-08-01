@@ -24,18 +24,14 @@
 						data-target="#submenu-2" aria-controls="submenu-2"><i
 							class="fa fa-fw fa-rocket"></i>UI Elements</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-toggle="collapse" aria-expanded="false"
-						data-target="#submenu-3" aria-controls="submenu-3"><i
-							class="fas fa-fw fa-chart-pie"></i>Chart</a></li>
+					<li class="nav-item"><a class="nav-link" href="toBoardList.do"><i
+							class="fas fa-fw fa-chart-pie"></i>To.MM</a></li>
 
-					<li class="nav-item "><a class="nav-link" href="#"
-						data-toggle="collapse" aria-expanded="false"
-						data-target="#submenu-4" aria-controls="submenu-4"><i
-							class="fab fa-fw fa-wpforms"></i>Forms</a></li>
+					<li class="nav-item "><a class="nav-link" href=fromBoardList.do><i
+							class="fab fa-fw fa-wpforms"></i>From.MM</a></li>
 
 					<li class="nav-item"><a class="nav-link" href="freeBoardList.do"><i
-							class="fas fa-fw fa-table"></i>Tables</a></li>
+							class="fas fa-fw fa-table"></i>Free Board</a></li>
 
 				</ul>
 			</div>

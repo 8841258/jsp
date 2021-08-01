@@ -3,11 +3,13 @@ package co.pooh.myHomePage.board.vo;
 import java.sql.Date;
 
 public class FromBoardVO {
+	
 	private Date fromDate;
 	private String fromWriter;
 	private String fromContent;
 	private int fromLike;
-	private String fromComment;
+
+	public FromBoardVO () {}
 	
 	public Date getFromDate() {
 		return fromDate;
@@ -33,12 +35,5 @@ public class FromBoardVO {
 	public void setFromLike(int fromLike) {
 		this.fromLike = fromLike;
 	}
-	public String getFromComment() {
-		return fromComment;
-	}
-	public void setFromComment(String fromComment) {
-		this.fromComment = fromComment;
-	}
-	
 	
 }
