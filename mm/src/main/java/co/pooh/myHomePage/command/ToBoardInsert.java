@@ -1,24 +1,28 @@
 package co.pooh.myHomePage.command;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.pooh.myHomePage.board.service.ToBoardService;
 import co.pooh.myHomePage.board.serviceImpl.ToBoardServiceImpl;
 import co.pooh.myHomePage.board.vo.ToBoardVO;
 import co.pooh.myHomePage.common.Command;
 
-public class ToBoardList implements Command {
+public class ToBoardInsert implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		ToBoardService dao = new ToBoardServiceImpl();
-		List<ToBoardVO> list = new ArrayList<ToBoardVO>();
-		list = dao.toBoardSelectList();
-		request.setAttribute("list", list);
+		ToBoardVO vo = new ToBoardVO();
+		
+		HttpSession session = request.getSession();
+		
+		vo.setToWriter((String) session.getAttribute("nickname"));
+		vo.setToContent(request.getParameter("tocontent"));
+		
+		dao.toBoardInsert(vo);
+		
 		return "home/toBoardList";
 	}
 

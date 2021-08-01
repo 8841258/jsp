@@ -3,10 +3,20 @@ package co.pooh.myHomePage.board.vo;
 import java.sql.Date;
 
 public class ToBoardVO {
+	private int toNo;
 	private Date toDate;
 	private String toWriter;
 	private String toContent;
-	private String toLike;
+	private int toLike;
+	
+	public ToBoardVO () {}
+	
+	public int getToNo() {
+		return toNo;
+	}
+	public void setToNo(int toNo) {
+		this.toNo = toNo;
+	}
 	
 	public Date getToDate() {
 		return toDate;
@@ -26,10 +36,10 @@ public class ToBoardVO {
 	public void setToContent(String toContent) {
 		this.toContent = toContent;
 	}
-	public String getToLike() {
+	public int getToLike() {
 		return toLike;
 	}
-	public void setToLike(String toLike) {
+	public void setToLike(int toLike) {
 		this.toLike = toLike;
 	}
 	
