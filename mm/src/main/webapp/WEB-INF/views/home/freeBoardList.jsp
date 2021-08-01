@@ -32,7 +32,8 @@
 							<c:forEach var="board" items="${list }">
 								<tr onclick="getRecord(${board.freeNo})">
 									<th scope="row">${board.freeNo }</th>
-									<td><span>${board.freeTitle }</span><span class="badge badge-secondary float-right">${board.freeCnum }</span></td>
+									<td><span>${board.freeTitle }</span><span
+										class="badge badge-secondary float-right">${board.freeCnum }</span></td>
 									<td>${board.freeDate }</td>
 									<td>${board.freeWriter }</td>
 									<td>${board.hit }</td>
@@ -43,13 +44,18 @@
 				</div>
 			</div>
 		</div>
-	<div>
-		<form id="frm" action="freeBoardSelect.do" method="POST">
-			<input type="hidden" id="freeNo" name="freeNo">
-		</form>
-	</div>
+		<div>
+			<form id="frm" action="freeBoardSelect.do" method="POST">
+				<input type="hidden" id="freeNo" name="freeNo">
+			</form>
+		</div>
 	</div>
 
-<div align="right"><a href="freeBoardInsert.do" class="btn btn-secondary"><i
-							class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기</a></div>
+	<div align="right">
+		<button type="button" onclick="location.href='freeBoardInsertForm.do'"
+			class="btn btn-secondary btn-sm">
+			<i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;글쓰기
+		</button>
+	</div>
+
 </div>

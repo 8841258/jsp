@@ -116,9 +116,10 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		sql = "insert into freeboard (freeno, freetitle, freewriter, freecontent) values (freeb_seq.nextval, ?, ?, ?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getFreeTitle());
-			psmt.setString(2, vo.getFreeWriter());
-			psmt.setString(3, vo.getFreeContent());
+			psmt.setInt(1, vo.getFreeNo());
+			psmt.setString(2, vo.getFreeTitle());
+			psmt.setString(3, vo.getFreeWriter());
+			psmt.setString(4, vo.getFreeContent());
 			r = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
