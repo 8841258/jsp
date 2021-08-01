@@ -40,13 +40,17 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 	</div>
 	<div class="row">
 		<div class="col-sm-4"></div>
-		<div class="col-sm-8" align="right">
-				<button type="button" onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'" class="btn btn-secondary btn-sm">
-					<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
-				</button>
-				<button type="button" onclick="location.href='freeBoardDelete.do?freeno=${board[0].freeNo}'" class="btn btn-secondary btn-sm">
-					<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
-				</button>
+		<div class="col-sm-8 mb-4" align="right">
+			<button type="button"
+				onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'"
+				class="btn btn-secondary btn-sm">
+				<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
+			</button>
+			<button type="button"
+				onclick="location.href='freeBoardDelete.do?freeno=${board[0].freeNo}'"
+				class="btn btn-secondary btn-sm">
+				<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
+			</button>
 			<button type="button"
 				onclick="location.href='freeBoardInsertForm.do'"
 				class="btn btn-secondary btn-sm">
@@ -57,21 +61,45 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 
 
 
-	<div class="email-list-item email-list-item--unread">
-		<div class="email-list-actions">
-			<label class="custom-control custom-checkbox"> <input
-				class="custom-control-input checkboxes" type="checkbox" value="1"
-				id="one"><span class="custom-control-label"></span>
-			</label><a class="favorite active" href="#"><span><i
-					class="fas fa-star"></i></span></a>
-		</div>
-		<div class="email-list-detail">
-			<span class="date float-right"><span class="icon"><i
-					class="fas fa-paperclip"></i> </span>28 Jul</span><span class="from">Penelope
-				Thornton</span>
-			<p class="msg">Urgent - You forgot your keys in the class room,
-				please come imediatly!</p>
+
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<c:forEach var="board" items="${board }">
+					<div class="card-body border-bottom">${board.freeCwriter } :
+						${board.freeCcontent } : ${board.freeCdate }</div>
+				</c:forEach>
+
+				<div class="card-body">
+					<textarea class="form-control mb-3" name="ccontent"
+						placeholder="댓글을 입력하세요" rows="4"></textarea>
+					<div>
+						<button type="button"
+							onclick="location.href='freeBoardCommentInsert.do'"
+							class="btn btn-secondary">댓글 쓰기</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
+
+<div class="email-list-item email-list-item--unread">
+	<div class="email-list-actions">
+		<label class="custom-control custom-checkbox"> <input
+			class="custom-control-input checkboxes" type="checkbox" value="1"
+			id="one"><span class="custom-control-label"></span>
+		</label><a class="favorite active" href="#"><span><i
+				class="fas fa-star"></i></span></a>
+	</div>
+	<div class="email-list-detail">
+		<span class="date float-right"><span class="icon"><i
+				class="fas fa-paperclip"></i> </span>28 Jul</span><span class="from">Penelope
+			Thornton</span>
+		<p class="msg">Urgent - You forgot your keys in the class room,
+			please come imediatly!</p>
+	</div>
+</div>
 
 </div>
