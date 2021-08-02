@@ -22,6 +22,7 @@ public class ToBoardList implements Command {
 		FMemberVO vo = new FMemberVO();
 		HttpSession session = request.getSession();
 		vo.setNickname((String) session.getAttribute("nickname"));
+		vo.setAuthor((String) session.getAttribute("author"));
 		list = dao.toBoardSelectList();
 		request.setAttribute("list", list);
 		request.setAttribute("member", vo);

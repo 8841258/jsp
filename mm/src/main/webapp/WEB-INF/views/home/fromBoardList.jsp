@@ -50,8 +50,26 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title mb-2">From. ${board.fromWriter }</h3>
-									<h6 class="card-subtitle text-muted">${board.fromDate }</h6>
+									<div class="row">
+										<div class="col-sm-6">
+											<h3 class="card-title mb-2">From. ${board.fromWriter }</h3>
+											<h6 class="card-subtitle text-muted">${board.fromDate }</h6>
+										</div>
+										<div class="col-sm-6" align="right">
+											<form id="frm" name="frm" action="fromBoardDelete.do"
+												method="post">
+												<span> <c:if
+														test="${ member.nickname eq board.fromWriter }">
+														<button type="submit" class="btn btn-sm btn-outline-light">
+															<i class="far fa-trash-alt"></i>
+														</button>
+													</c:if>
+												</span> <input type="hidden" name="fromno" value="${board.fromNo }">
+												<input type="hidden" name="nickname"
+													value="${board.fromWriter }">
+											</form>
+										</div>
+									</div>
 								</div>
 								<img class="img-fluid" src="../assets/images/card-img.jpg"
 									alt="Card image cap">
@@ -63,6 +81,26 @@
 					</c:forEach>
 				</div>
 			</div>
+			<c:if test="${ member.author eq 'STAR' }">
+				<div class="chat-module-bottom">
+					<form class="chat-form" id="frm" name="frm"
+						action="fromBoardInsert.do" method="post">
+						<textarea class="form-control" id="fromcontent" name="fromcontent"
+							placeholder="Type message" rows="1"></textarea>
+						<div class="chat-form-buttons">
+							<button type="submit" class="btn btn-link">
+								<i class="far fa-smile"></i>
+							</button>
+							<div class="custom-file custom-file-naked">
+								<input type="file" class="custom-file-input" id="customFile">
+								<label class="custom-file-label" for="customFile"> <i
+									class="fas fa-paperclip"></i>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	>

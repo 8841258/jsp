@@ -59,14 +59,38 @@ public class FromBoardServiceImpl implements FromBoardService {
 
 	@Override
 	public int fromBoardInsert(FromBoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int r = 0;
+		sql = "insert into fromboard (fromno, fromwriter, fromcontent) values (to_seq.nextval, ?, ?)";
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getFromWriter());
+			psmt.setString(2, vo.getFromContent());
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return r;
 	}
 
 	@Override
 	public int fromBoardDelete(FromBoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int r = 0;
+		sql = "delete from fromboard where fromno=? and fromwriter=?";
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getFromNo());
+			psmt.setString(2, vo.getFromWriter());
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return r;
 	}
 
 }
