@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <!-- 여기에 게시판 1개 글 보기 틀 만들기<br>
 글 관련 데이터 뜨는지 확인 >>>>>>>>
 ${board[0].freeTitle } : ${board[0].freeDate } : ${board[0].freeWriter } : ${board[0].freeContent } : ${board[0].freeCnum }
@@ -39,7 +41,7 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
                   </div>
 
                </div>
-               <div class="mt-3">${board[0].freeContent }</div>
+               <div class="mt-3">${fn:replace(board[0].freeContent, replaceChar, "<br/>") }</div>
             </div>
          </div>
       </div>

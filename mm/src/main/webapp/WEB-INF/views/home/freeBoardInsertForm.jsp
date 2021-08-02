@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script>
-	let str = document.getElementById("freecontent").value;
-	str = str.replace(/(?:\r\n|\r|\n)/g, '<br />');
-</script>
 <div class="container-fluid  dashboard-content">
 	<div class="row">
 		<!-- ============================================================== -->
