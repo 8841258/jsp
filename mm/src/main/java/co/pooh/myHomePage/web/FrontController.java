@@ -22,6 +22,8 @@ import co.pooh.myHomePage.command.ToBoardInsert;
 import co.pooh.myHomePage.command.ToBoardList;
 import co.pooh.myHomePage.command.ToBoardListd;
 import co.pooh.myHomePage.command.ToBoardListi;
+import co.pooh.myHomePage.command.DeleteAccount;
+import co.pooh.myHomePage.command.DeleteAccountForm;
 import co.pooh.myHomePage.command.FreeBoardCommentInsert;
 import co.pooh.myHomePage.command.FreeBoardDelete;
 import co.pooh.myHomePage.command.FreeBoardInsert;
@@ -73,6 +75,8 @@ public class FrontController extends HttpServlet {
 		map.put("/toBoardListi.do", new ToBoardListi());
 		map.put("/toBoardListd.do", new ToBoardListd());
 		map.put("/freeCommentDelete.do", new FreeCommentDelete());
+		map.put("/deleteAccountForm.do", new DeleteAccountForm());
+		map.put("/deleteAccount.do", new DeleteAccount());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

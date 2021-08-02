@@ -37,6 +37,8 @@ public class Login implements Command {
 			
 			page = "home.do";
 		} else {
+			String message = "ID 또는 비밀번호가 틀립니다.";
+			request.setAttribute("message", message);
 			page = "loginForm.do";
 		}
 		
