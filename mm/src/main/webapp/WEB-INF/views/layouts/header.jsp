@@ -4,7 +4,7 @@
 <!-- ============================================================== -->
 <div class="dashboard-header">
 	<nav class="navbar navbar-expand-lg bg-white fixed-top">
-		<a class="navbar-brand" href="home.do">Fan page</a>
+		<a class="navbar-brand" href="home.do"><img src="assets/images/mmlogo.png" width="190" height="50"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -16,7 +16,7 @@
 				<li class="nav-item dropdown nav-user"><a
 					class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-						src="assets/images/avatar-1.jpg" alt=""
+						src="assets/images/prologo.jpg" width="24px" height="24px" alt=""
 						class="user-avatar-md rounded-circle"></a>
 					<div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
 						aria-labelledby="navbarDropdownMenuLink2">

@@ -26,7 +26,7 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="user-avatar text-center d-block">
-					<img src="assets/images/avatar-1.jpg" alt="User Avatar"
+					<img src="assets/images/prologo.jpg" alt="User Avatar"
 						class="rounded-circle user-avatar-xxl">
 				</div>
 				<div class="text-center">
