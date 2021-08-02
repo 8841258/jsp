@@ -52,7 +52,9 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 			</button>
 		</div>
 		<div class="col-sm-8 mb-4" align="right">
-			<button type="button"
+
+			<c:if test="${ member.nickname eq board[0].freeWriter }">
+				<button type="button"
 				onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'"
 				class="btn btn-secondary btn-sm">
 				<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
@@ -62,6 +64,8 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 				class="btn btn-secondary btn-sm">
 				<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
 			</button>
+			</c:if>
+			
 			<button type="button"
 				onclick="location.href='freeBoardInsertForm.do'"
 				class="btn btn-secondary btn-sm">
@@ -100,8 +104,7 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 							placeholder="댓글을 입력하세요" rows="4"></textarea>
 						<input type="hidden" name="freeno" value="${board[0].freeNo}">
 						<div>
-							<button type="submit"
-								class="btn btn-secondary">댓글 쓰기</button>
+							<button type="submit" class="btn btn-secondary">댓글 쓰기</button>
 						</div>
 					</form>
 				</div>

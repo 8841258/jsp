@@ -5,22 +5,29 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.pooh.myHomePage.board.service.FreeBoardService;
 import co.pooh.myHomePage.board.serviceImpl.FreeBoardServiceImpl;
 import co.pooh.myHomePage.board.vo.FreeBoardVO;
 import co.pooh.myHomePage.common.Command;
+import co.pooh.myHomePage.fmember.vo.FMemberVO;
 
 public class FreeBoardSelect implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		FreeBoardService dao = new FreeBoardServiceImpl();
+		FMemberVO vo = new FMemberVO();
+		HttpSession session = request.getSession();	
+		
+		vo.setNickname((String) session.getAttribute("nickname"));
 		
 		int n = Integer.valueOf(request.getParameter("freeNo"));
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
 		list = dao.freeBoardSelect(n);
 		request.setAttribute("board", list);
+		request.setAttribute("member", vo);
 		
 		return "home/freeBoardSelect";
 	}
