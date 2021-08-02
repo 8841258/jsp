@@ -23,7 +23,9 @@ public class ToBoardInsert implements Command {
 		
 		dao.toBoardInsert(vo);
 		
-		return "home/toBoardList";
+		request.setAttribute("tono", (Object) vo.getToNo());
+		
+		return "toBoardListi.do";
 	}
 
 }

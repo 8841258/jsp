@@ -6,7 +6,7 @@
 		<!-- basic table -->
 		<!-- ============================================================== -->
 		<div class="col-12">
-			<form name="frm" action="freeBoardInsert.do" method="post">
+			<form enctype="multipart/form-data" name="frm" action="freeBoardInsert.do" method="post">
 				<div class="card">
 					<h5 class="card-header">자유 게시판</h5>
 					<div class="card-body">

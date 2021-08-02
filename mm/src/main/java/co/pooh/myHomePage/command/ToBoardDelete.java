@@ -23,7 +23,9 @@ public class ToBoardDelete implements Command {
 		
 		dao.toBoardDelete(vo);
 		
-		return "home/toBoardList";
+		request.setAttribute("tono", (Object) vo.getToNo());
+		
+		return "toBoardListd.do";
 	}
 
 }

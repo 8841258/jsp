@@ -24,10 +24,10 @@ public class MemberAccount implements Command {
 		vo.setEmail((String) session.getAttribute("email"));
 		vo = dao.memberAccount(vo);
 		
-		session.setAttribute("id", vo.getId());
-		session.setAttribute("nickname", vo.getNickname());
-		session.setAttribute("name", vo.getName());
-		session.setAttribute("email", vo.getEmail());
+//		session.setAttribute("id", vo.getId());
+//		session.setAttribute("nickname", vo.getNickname());
+//		session.setAttribute("name", vo.getName());
+//		session.setAttribute("email", vo.getEmail());
 		request.setAttribute("account", vo);
 		
 		return "home/memberAccount";
