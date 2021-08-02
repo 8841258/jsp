@@ -29,22 +29,22 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col" width="20"><p align="middle">#</p></th>
 								<th scope="col">제목</th>
-								<th scope="col">날짜</th>
-								<th scope="col">글쓴이</th>
-								<th scope="col">조회수</th>
+								<th scope="col" width="150"><p align="middle">날짜</p></th>
+								<th scope="col" width="150"><p align="middle">글쓴이</p></th>
+								<th scope="col" width="100"><p align="middle">조회수</p></th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="board" items="${list }">
 								<tr onclick="getRecord(${board.freeNo})">
-									<th scope="row">${board.freeNo }</th>
+									<th scope="row"><!-- ${board.freeNo } --><p align="middle">·</p></th>
 									<td><span>${board.freeTitle }</span><span
 										class="badge badge-secondary float-right">${board.freeCnum }</span></td>
-									<td>${board.freeDate }</td>
-									<td>${board.freeWriter }</td>
-									<td>${board.hit }</td>
+									<td align="center">${board.freeDate }</td>
+									<td align="center">${board.freeWriter }</td>
+									<td align="center">${board.hit }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
