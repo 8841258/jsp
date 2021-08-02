@@ -16,7 +16,7 @@ public class ToBoardListd implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		ToBoardService dao = new ToBoardServiceImpl();
-
+		
 		int n = (int) request.getAttribute("tono");
 		List<ToBoardVO> list = new ArrayList<ToBoardVO>();
 		list = dao.toBoardSelectList();

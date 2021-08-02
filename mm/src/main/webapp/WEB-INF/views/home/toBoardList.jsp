@@ -46,12 +46,14 @@
 									<form id="frm" name="frm" action="toBoardDelete.do"
 										method="post">
 										<span class="chat-item-author">${board.toContent }</span> <span>
-											<button type="submit" class="btn btn-sm btn-outline-light">
-												<i class="far fa-trash-alt"></i>
-											</button>
-											<input type="hidden" name="tono" value="${board.toNo }">
-											<input type="hidden" name="nickname" value="${board.toWriter }">
-										</span>
+											<c:if test="${ member.nickname eq board.toWriter }">
+												<button type="submit" class="btn btn-sm btn-outline-light">
+													<i class="far fa-trash-alt"></i>
+												</button>
+											</c:if>
+										</span> <input type="hidden" name="tono" value="${board.toNo }">
+										<input type="hidden" name="nickname"
+											value="${board.toWriter }">
 									</form>
 								</div>
 							</div>
@@ -60,7 +62,8 @@
 				</div>
 			</div>
 			<div class="chat-module-bottom">
-				<form class="chat-form" id="frm" name="frm" action="toBoardInsert.do" method="post">
+				<form class="chat-form" id="frm" name="frm"
+					action="toBoardInsert.do" method="post">
 					<textarea class="form-control" id="tocontent" name="tocontent"
 						placeholder="Type message" rows="1"></textarea>
 					<div class="chat-form-buttons">
