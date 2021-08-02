@@ -3,7 +3,7 @@
 <script>
 	function handleOnClick() {
 		frm.submit();
-		let success = confirm("탈퇴하였습니다.");
+		let success = alert("탈퇴하였습니다.");
 	}
 </script>
 <div class="container-fluid  dashboard-content">
@@ -13,7 +13,7 @@
 				<div class="text-center">
 					<h2 class="pageheader-title">정말 탈퇴하시겠어요?</h2>
 					<form id="frm" name="frm" action="deleteAccount.do" method="post">
-						<span onclick="handleOnClick()">네</span>
+						<span class="cursor_test" onclick="handleOnClick()">네</span>&nbsp;&nbsp;&nbsp;<span class="cursor_test" onclick="location.href='memberAccount.do'">아니오</span>
 					</form>
 				</div>
 

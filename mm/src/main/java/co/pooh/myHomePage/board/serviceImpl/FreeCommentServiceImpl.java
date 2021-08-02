@@ -72,12 +72,26 @@ public class FreeCommentServiceImpl implements FreeCommentService {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, vo.getFreeCno());
 			r = psmt.executeUpdate();
+			
+			freeUpdate2(vo.getFreeNO());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
 		return r;
+	}
+
+	private void freeUpdate2(int no) {
+		String sql = "update freeboard set freecnum = freecnum - 1 where freeno = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

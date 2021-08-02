@@ -20,6 +20,11 @@
 <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
 <link rel="stylesheet"
 	href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+<style>
+.cursor_test {
+	cursor: pointer;
+}
+</style>
 <title>test</title>
 </head>
 <body>
