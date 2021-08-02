@@ -211,7 +211,7 @@
 						</div>
 					</div>
 					<c:forEach var="board" items="${list }">
-						<div class="col-6">
+						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
 									<div class="row">
@@ -235,8 +235,8 @@
 										</div>
 									</div>
 								</div>
-								<img class="img-fluid" src="../assets/images/card-img.jpg"
-									alt="Card image cap">
+								<!-- <img class="img-fluid" src="../assets/images/card-img.jpg"
+									alt="Card image cap"> -->
 								<div class="card-body">
 									<p class="card-text">${board.fromContent }</p>
 								</div>
