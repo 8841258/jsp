@@ -51,7 +51,7 @@
                </div>
                <br>
                <div class="form-group">
-                  <button type="submit" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
+                  <button type="submit" class="btn form-control btn-primary rounded submit px-3">가입</button>
                </div>
              </form>
              <div class="w-100 text-center mt-4 text">

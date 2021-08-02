@@ -40,6 +40,8 @@ public class FreeCommentServiceImpl implements FreeCommentService {
 			psmt.setString(2, vo.getFreeCcontent());
 			psmt.setString(3, vo.getFreeCwriter());
 			r = psmt.executeUpdate();
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
