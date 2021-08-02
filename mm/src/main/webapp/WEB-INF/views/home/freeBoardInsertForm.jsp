@@ -21,9 +21,8 @@
 								placeholder="여기에 내용을 입력하세요"></textarea>
 						</div>
 						<div class="custom-file mb-3">
-							<input type="file" class="custom-file-input" id="customFile">
-							<label class="custom-file-label" for="customFile">사진
-								선택하기...</label>
+							<input type="file"  id="customFile">
+							
 						</div>
 					</div>
 				</div>

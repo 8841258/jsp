@@ -48,6 +48,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 				vo.setFreeWriter(rs.getString("freewriter"));
 				vo.setFreeCnum(rs.getString("freecnum"));
 				vo.setHit(rs.getInt("hit"));
+				vo.setFreeFile(rs.getString("freefile"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -113,13 +114,14 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Override
 	public int freeBoardInsert(FreeBoardVO vo) {
 		int r = 0;
-		sql = "insert into freeboard (freeno, freetitle, freewriter, freecontent) values (freeb_seq.nextval, ?, ?, ?)";
+		sql = "insert into freeboard (freeno, freetitle, freewriter, freecontent, freefile) values (freeb_seq.nextval, ?, ?, ?, ?)";
 		try {
 			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getFreeTitle());
 			psmt.setString(2, vo.getFreeWriter());
 			psmt.setString(3, vo.getFreeContent());
+			psmt.setString(4, vo.getFreeFile());
 			r = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

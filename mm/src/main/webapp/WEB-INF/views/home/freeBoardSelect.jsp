@@ -61,7 +61,11 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 						</div>
 
 					</div>
-					<div class="mt-3">${fn:replace(board[0].freeContent, replaceChar, "<br/>") }
+					<div class="mt-3">
+					<c:if test="${not empty board[0].freeFile}">
+						<img src="${board[0].freeFile }">
+					</c:if>
+					${fn:replace(board[0].freeContent, replaceChar, "<br/>") }
 					</div>
 				</div>
 			</div>
@@ -123,9 +127,7 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 								<span class="font-weight-bolder">${board.freeCwriter }</span>&nbsp;&nbsp;<span
 									class="small">${board.freeCdate }</span>
 							</div>
-							<c:if test="${ member.nickname eq board.freeCwriter }">
-								<!--                         <div class="col-sm-6" align="right"
-                           onclick="location.href='freeCommentDelete.do?&freecno=${board.freeCno}&freeno=${board.freeNo }'">삭제</div> -->
+							<c:if test="${ member.nickname eq board.freeCwriter }">				
 								<div class="col-sm-6" align="right">
 									<form name="frm" id="frm" action="freeCommentDelete.do"
 										method="post">

@@ -10,7 +10,16 @@ public class FreeBoardVO extends FreeCommentVO {
 	private String freeContent;
 	private String freeCnum;
 	private int hit;
+	private String freeFile;
 	
+	public String getFreeFile() {
+		return freeFile;
+	}
+
+	public void setFreeFile(String freeFile) {
+		this.freeFile = freeFile;
+	}
+
 	public FreeBoardVO() {}
 
 	public int getFreeNo() {

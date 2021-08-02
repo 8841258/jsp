@@ -23,7 +23,7 @@ public class FreeBoardInsert implements Command {
 		String realFolder = "";
 		String filename1 = "";
 		int maxSize = 1024 * 1024 * 5;
-		String encType = "utf-8";
+		String encType = "euc-kr";
 		String savefile = "img";
 		ServletContext scontext = request.getServletContext();
 		realFolder = scontext.getRealPath(savefile);
@@ -40,9 +40,8 @@ public class FreeBoardInsert implements Command {
 		}
 
 		String fullpath = realFolder + "\\" + filename1;
-
-		request.setAttribute("img", fullpath);
 		
+		//freeboard에 이 경로를 저장하는 컬럼을 하나 만들고...거기에 insert를 같이 하는 방식으로....
 		
 		
 		
@@ -54,10 +53,12 @@ public class FreeBoardInsert implements Command {
 		vo.setFreeWriter((String) session.getAttribute("nickname"));
 		vo.setFreeTitle(request.getParameter("freetitle"));
 		vo.setFreeContent(request.getParameter("freecontent"));
+		vo.setFreeFile(fullpath);
 		
 		System.out.println((String) session.getAttribute("nickname"));
 		System.out.println(request.getParameter("freetitle"));
 		System.out.println(request.getParameter("freecontent"));
+		System.out.println(vo.getFreeFile());
 		
 		dao.freeBoardInsert(vo);
 		
