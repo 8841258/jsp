@@ -26,6 +26,7 @@ public class FreeBoardSelectbu implements Command {
 		request.setAttribute("member", vo);
 		
 		int n = (int) request.getAttribute("freeno");
+		System.out.println(n);
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
 		list = dao.freeBoardSelect(n);
 		request.setAttribute("board", list);
