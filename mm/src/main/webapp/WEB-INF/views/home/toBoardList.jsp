@@ -36,8 +36,8 @@
 				<div class="chat-module-body">
 					<c:forEach var="board" items="${list }">
 						<div class="media chat-item">
-							<img alt="${board.toWriter }" src="../assets/images/avatar-1.jpg"
-								class="rounded-circle user-avatar-lg">
+							<img alt="${board.toWriter }" src="assets/images/avatar-2.jpg"
+								class="rounded-circle user-avatar-lg" width="48px" height="48px">
 							<div class="media-body">
 								<div class="chat-item-title">
 									<span class="chat-item-author">${board.toWriter }</span> <span>${board.toDate }</span>
