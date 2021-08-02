@@ -22,6 +22,10 @@ public class FreeBoardInsert implements Command {
 		vo.setFreeTitle(request.getParameter("freetitle"));
 		vo.setFreeContent(request.getParameter("freecontent"));
 		
+		System.out.println((String) session.getAttribute("nickname"));
+		System.out.println(request.getParameter("freetitle"));
+		System.out.println(request.getParameter("freecontent"));
+		
 		dao.freeBoardInsert(vo);
 		
 		return "freeBoardList.do";

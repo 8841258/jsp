@@ -40,6 +40,7 @@
 					<ul class="list-unstyled mb-0">
 						<li class="mb-2"><i class="fas fa-fw fa-id-badge mr-2"></i>${account.name }</li>
 						<li class="mb-0"><i class="fas fa-fw fa-envelope mr-2"></i>${account.email }</li>
+						<li class="mb-0"><i class="fas fa-fw fas fa-cut mr-2"></i><span onclick="location.href='deleteAccountForm.do'">탈퇴하기</span></li>
 					</ul>
 				</div>
 			</div>
