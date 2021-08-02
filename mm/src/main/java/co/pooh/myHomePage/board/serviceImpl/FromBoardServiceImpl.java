@@ -43,6 +43,7 @@ public class FromBoardServiceImpl implements FromBoardService {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				vo = new FromBoardVO();
+				vo.setFromNo(rs.getInt("fromno"));
 				vo.setFromDate(rs.getDate("fromdate"));
 				vo.setFromWriter(rs.getString("fromwriter"));
 				vo.setFromContent(rs.getString("fromcontent"));

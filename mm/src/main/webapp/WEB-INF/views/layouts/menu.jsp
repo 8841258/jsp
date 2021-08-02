@@ -14,15 +14,10 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav flex-column">
 
-					<li class="nav-item"><a class="nav-link" href="#"
+					<li class="nav-item"><a class="nav-link" onclick="location.href='home.do'"
 						data-toggle="collapse" aria-expanded="false"
 						data-target="#submenu-2" aria-controls="submenu-2"><i
-							class="fa fa-fw fa-user-circle"></i>Dashboard</a></li>
-
-					<li class="nav-item"><a class="nav-link" href="#"
-						data-toggle="collapse" aria-expanded="false"
-						data-target="#submenu-2" aria-controls="submenu-2"><i
-							class="fa fa-fw fa-rocket"></i>UI Elements</a></li>
+							class="fa fa-fw fa-user-circle"></i>HOME</a></li>
 
 					<li class="nav-item"><a class="nav-link" href="toBoardList.do"><i
 							class="fas fa-fw fa-chart-pie"></i>To.MM</a></li>
