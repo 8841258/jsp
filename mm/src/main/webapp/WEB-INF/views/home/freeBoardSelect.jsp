@@ -95,13 +95,15 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 			</div>
 			<div class="row">
 				<div class="card-body">
-					<textarea class="form-control mb-3" name="ccontent"
-						placeholder="댓글을 입력하세요" rows="4"></textarea>
-					<div>
-						<button type="button"
-							onclick="location.href='freeBoardCommentInsert.do'"
-							class="btn btn-secondary">댓글 쓰기</button>
-					</div>
+					<form action="freeBoardCommentInsert.do">
+						<textarea class="form-control mb-3" name="freeccontent"
+							placeholder="댓글을 입력하세요" rows="4"></textarea>
+						<input type="hidden" name="freeno" value="${board[0].freeNo}">
+						<div>
+							<button type="submit"
+								class="btn btn-secondary">댓글 쓰기</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
