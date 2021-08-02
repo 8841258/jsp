@@ -62,7 +62,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	public List<FreeBoardVO> freeBoardSelect(int no) {
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
 		FreeBoardVO vo;
-		sql = "select a.*, b.freecwriter, b.freeccontent, b.freecdate\r\n"
+		sql = "select a.*, b.freecwriter, b.freeccontent, b.freecdate, b.freecno\r\n"
 				+ "from freeboard a left outer join freecomment b\r\n" + "on (a.freeno = b.freeno)\r\n"
 				+ "where a.freeno=?";
 		try {
@@ -82,6 +82,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 				vo.setFreeCwriter(rs.getString("freecwriter"));
 				vo.setFreeCcontent(rs.getString("freeccontent"));
 				vo.setFreeCdate(rs.getDate("freecdate"));
+				vo.setFreeCno(rs.getInt("freecno"));
 				hitUpdate(vo.getFreeNo());
 				list.add(vo);
 			}

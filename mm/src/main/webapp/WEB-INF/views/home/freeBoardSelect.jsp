@@ -55,17 +55,17 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 
 			<c:if test="${ member.nickname eq board[0].freeWriter }">
 				<button type="button"
-				onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'"
-				class="btn btn-secondary btn-sm">
-				<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
-			</button>
-			<button type="button"
-				onclick="location.href='freeBoardDelete.do?freeno=${board[0].freeNo}'"
-				class="btn btn-secondary btn-sm">
-				<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
-			</button>
+					onclick="location.href='freeBoardUpdateForm.do?freeno=${board[0].freeNo}'"
+					class="btn btn-secondary btn-sm">
+					<i class="fas fa-edit"></i>&nbsp;&nbsp;수정
+				</button>
+				<button type="button"
+					onclick="location.href='freeBoardDelete.do?freeno=${board[0].freeNo}'"
+					class="btn btn-secondary btn-sm">
+					<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;삭제
+				</button>
 			</c:if>
-			
+
 			<button type="button"
 				onclick="location.href='freeBoardInsertForm.do'"
 				class="btn btn-secondary btn-sm">
@@ -90,7 +90,10 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 								<span class="lead">${board.freeCwriter }</span>&nbsp;&nbsp;<span
 									class="small">${board.freeCdate }</span>
 							</div>
-							<div class="col-sm-6" align="right">삭제</div>
+							<c:if test="${ member.nickname eq board.freeCwriter }">
+								<div class="col-sm-6" align="right"
+									onclick="location.href='freeCommentDelete.do?&freecno=${board.freeCno}&freeno=${board.freeNo }'">삭제</div>
+							</c:if>
 						</div>
 						<br>
 						<div class="mt-2">${board.freeCcontent }</div>

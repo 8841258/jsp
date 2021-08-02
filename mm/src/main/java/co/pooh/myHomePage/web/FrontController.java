@@ -32,6 +32,7 @@ import co.pooh.myHomePage.command.FreeBoardSelectbu;
 import co.pooh.myHomePage.command.FreeBoardSelectci;
 import co.pooh.myHomePage.command.FreeBoardUpdate;
 import co.pooh.myHomePage.command.FreeBoardUpdateForm;
+import co.pooh.myHomePage.command.FreeCommentDelete;
 import co.pooh.myHomePage.command.FromBoardList;
 import co.pooh.myHomePage.common.Command;
 
@@ -67,8 +68,10 @@ public class FrontController extends HttpServlet {
 		map.put("/freeBoardCommentInsert.do", new FreeBoardCommentInsert());
 		map.put("/freeBoardSelectci.do", new FreeBoardSelectci());
 		map.put("/freeBoardSelectbu.do", new FreeBoardSelectbu());
+		map.put("/freeBoardSelectcd.do", new FreeBoardSelectcd());
 		map.put("/toBoardListi.do", new ToBoardListi());
 		map.put("/toBoardListd.do", new ToBoardListd());
+		map.put("/freeCommentDelete.do", new FreeCommentDelete());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
