@@ -28,7 +28,7 @@ public class FreeCommentServiceImpl implements FreeCommentService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public int freeBoardInsert(FreeCommentVO vo) {
 		int r = 0;
@@ -40,14 +40,27 @@ public class FreeCommentServiceImpl implements FreeCommentService {
 			psmt.setString(2, vo.getFreeCcontent());
 			psmt.setString(3, vo.getFreeCwriter());
 			r = psmt.executeUpdate();
-			
-			
+
+			freeUpdate(vo.getFreeNO());
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
 		return r;
+	}
+
+	private void freeUpdate(int no) {
+		String sql = "update freeboard set freecnum = freecnum + 1 where freeno = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
