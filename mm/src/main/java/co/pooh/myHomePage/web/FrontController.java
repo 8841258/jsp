@@ -29,6 +29,7 @@ import co.pooh.myHomePage.command.FreeBoardInsertForm;
 import co.pooh.myHomePage.command.FreeBoardList;
 import co.pooh.myHomePage.command.FreeBoardSelect;
 import co.pooh.myHomePage.command.FreeBoardSelectbu;
+import co.pooh.myHomePage.command.FreeBoardSelectcd;
 import co.pooh.myHomePage.command.FreeBoardSelectci;
 import co.pooh.myHomePage.command.FreeBoardUpdate;
 import co.pooh.myHomePage.command.FreeBoardUpdateForm;
