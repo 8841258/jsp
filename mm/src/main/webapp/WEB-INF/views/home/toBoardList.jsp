@@ -46,9 +46,11 @@
 									<form id="frm" name="frm" action="toBoardDelete.do"
 										method="post">
 										<span class="chat-item-author">${board.toContent }</span> <span>
-											<button class="btn btn-sm btn-outline-light">
+											<button type="submit" class="btn btn-sm btn-outline-light">
 												<i class="far fa-trash-alt"></i>
 											</button>
+											<input type="hidden" name="tono" value="${board.toNo }">
+											<input type="hidden" name="nickname" value="${board.toWriter }">
 										</span>
 									</form>
 								</div>
@@ -58,7 +60,7 @@
 				</div>
 			</div>
 			<div class="chat-module-bottom">
-				<form class="chat-form" id="frm" name="frm" method="post">
+				<form class="chat-form" id="frm" name="frm" action="toBoardInsert.do" method="post">
 					<textarea class="form-control" id="tocontent" name="tocontent"
 						placeholder="Type message" rows="1"></textarea>
 					<div class="chat-form-buttons">
@@ -87,33 +89,5 @@
 
 	<script src="../assets/vendor/dropzone/dropzone.js"></script>
 	<script src="../assets/libs/js/main-js.js"></script>
-	<script>
-		$(function() {
-			$('#submit').on(
-					"click",
-					function() {
-
-						var form1 = $("#frm").serialize();
-
-						console.log(form1);
-						$.ajax({
-							type : "post",
-							url : "/toBoardInsert.do", // 수정하기
-							data : form1,
-							dataType : 'json',
-							success : function(data) {
-								alert("success");
-								console.log(data);
-							},
-							error : function(request, status, error) {
-								console.log("code:" + request.status + "\n"
-										+ "message:" + request.responseText
-										+ "\n" + "error:" + error);
-
-							}
-						});
-					});
-		});
-	</script>
 </body>
 </html>

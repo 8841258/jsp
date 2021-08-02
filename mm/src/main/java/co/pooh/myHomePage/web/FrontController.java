@@ -73,13 +73,11 @@ public class FrontController extends HttpServlet {
 				page = page + ".tiles";  //home/home
 			} else {
 				page = "/WEB-INF/views/" + page;    //home/home.jsp
-				
 			}
 		}
 		System.out.println(page);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 		dispatcher.forward(request, response);
-		
 		
 	}
 
