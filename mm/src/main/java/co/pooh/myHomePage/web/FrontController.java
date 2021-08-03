@@ -10,19 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.pooh.myHomePage.command.Home;
-import co.pooh.myHomePage.command.Login;
-import co.pooh.myHomePage.command.LoginForm;
-import co.pooh.myHomePage.command.Logout;
-import co.pooh.myHomePage.command.MemberAccount;
-import co.pooh.myHomePage.command.MemberInsert;
-import co.pooh.myHomePage.command.MemberInsertForm;
-import co.pooh.myHomePage.command.ToBoardDelete;
-import co.pooh.myHomePage.command.ToBoardInsert;
-import co.pooh.myHomePage.command.ToBoardList;
-import co.pooh.myHomePage.command.ToBoardListd;
-import co.pooh.myHomePage.command.ToBoardListi;
-import co.pooh.myHomePage.command.FileUploadCommand;
+import co.pooh.myHomePage.command.DeleteAccount;
+import co.pooh.myHomePage.command.DeleteAccountForm;
 //import co.pooh.myHomePage.command.DeleteAccount;
 //import co.pooh.myHomePage.command.DeleteAccountForm;
 import co.pooh.myHomePage.command.FreeBoardCommentInsert;
@@ -42,6 +31,18 @@ import co.pooh.myHomePage.command.FromBoardInsert;
 import co.pooh.myHomePage.command.FromBoardList;
 import co.pooh.myHomePage.command.FromBoardListd;
 import co.pooh.myHomePage.command.FromBoardListi;
+import co.pooh.myHomePage.command.Home;
+import co.pooh.myHomePage.command.Login;
+import co.pooh.myHomePage.command.LoginForm;
+import co.pooh.myHomePage.command.Logout;
+import co.pooh.myHomePage.command.MemberAccount;
+import co.pooh.myHomePage.command.MemberInsert;
+import co.pooh.myHomePage.command.MemberInsertForm;
+import co.pooh.myHomePage.command.ToBoardDelete;
+import co.pooh.myHomePage.command.ToBoardInsert;
+import co.pooh.myHomePage.command.ToBoardList;
+import co.pooh.myHomePage.command.ToBoardListd;
+import co.pooh.myHomePage.command.ToBoardListi;
 import co.pooh.myHomePage.common.Command;
 
 
@@ -80,13 +81,12 @@ public class FrontController extends HttpServlet {
 		map.put("/toBoardListi.do", new ToBoardListi());
 		map.put("/toBoardListd.do", new ToBoardListd());
 		map.put("/freeCommentDelete.do", new FreeCommentDelete());
-//		map.put("/deleteAccountForm.do", new DeleteAccountForm());
-//		map.put("/deleteAccount.do", new DeleteAccount());
+		map.put("/deleteAccountForm.do", new DeleteAccountForm());
+		map.put("/deleteAccount.do", new DeleteAccount());
 		map.put("/fromBoardInsert.do", new FromBoardInsert());
 		map.put("/fromBoardListi.do", new FromBoardListi());
 		map.put("/fromBoardDelete.do", new FromBoardDelete());
 		map.put("/fromBoardListd.do", new FromBoardListd());
-		map.put("/fileUploadCommand.do", new FileUploadCommand());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

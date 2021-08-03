@@ -33,9 +33,42 @@
 	<div class="content-container">
 		<div class="chat-module">
 			<div class="chat-module-top">
-			<a href="toBoardList.do" class="btn btn-primary btn-block">to.
-				Mad Monster</a>
+				<a href="toBoardList.do" class="btn btn-primary btn-block">to.
+					Mad Monster</a>
 				<div class="chat-module-body">
+					<c:forEach var="board" items="${list }">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="row">
+										<div class="col-sm-6">
+											<h3 class="card-title mb-2">From. ${board.fromWriter }</h3>
+											<h6 class="card-subtitle text-muted">${board.fromDate }</h6>
+										</div>
+										<div class="col-sm-6" align="right">
+											<form id="frm" name="frm" action="fromBoardDelete.do"
+												method="post">
+												<span> <c:if
+														test="${ member.nickname eq board.fromWriter }">
+														<button type="submit" class="btn btn-sm btn-outline-light">
+															<i class="far fa-trash-alt"></i>
+														</button>
+													</c:if>
+												</span> <input type="hidden" name="fromno" value="${board.fromNo }">
+												<input type="hidden" name="nickname"
+													value="${board.fromWriter }">
+											</form>
+										</div>
+									</div>
+								</div>
+								<!-- <img class="img-fluid" src="../assets/images/card-img.jpg"
+									alt="Card image cap"> -->
+								<div class="card-body">
+									<p class="card-text">${board.fromContent }</p>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 					<div class="col-sm-6">
 						<div class="card">
 							<div class="card-header">
@@ -53,7 +86,7 @@
 														<i class="far fa-trash-alt"></i>
 													</button>
 												</c:if>
-											</span> 
+											</span>
 										</form>
 									</div>
 								</div>
@@ -61,7 +94,11 @@
 							<img class="img-fluid" src="assets/images/tan3.jpg"
 								alt="Card image cap">
 							<div class="card-body">
-								<p class="card-text">김밥 먹고 있어<br>점심 먹기 전에 ~<br>중복이라서 한번 먹고 중복으로 한번 더 먹을 계획♥<br><br>더운데 시원한 물 많이 마셔~~♡♡</p>
+								<p class="card-text">
+									김밥 먹고 있어<br>점심 먹기 전에 ~<br>중복이라서 한번 먹고 중복으로 한번 더 먹을
+									계획♥<br>
+									<br>더운데 시원한 물 많이 마셔~~♡♡
+								</p>
 							</div>
 						</div>
 					</div>
@@ -82,7 +119,7 @@
 														<i class="far fa-trash-alt"></i>
 													</button>
 												</c:if>
-											</span> 
+											</span>
 										</form>
 									</div>
 								</div>
@@ -111,7 +148,7 @@
 														<i class="far fa-trash-alt"></i>
 													</button>
 												</c:if>
-											</span> 
+											</span>
 										</form>
 									</div>
 								</div>
@@ -119,7 +156,7 @@
 							<img class="img-fluid" src="assets/images/jho2.jpg"
 								alt="Card image cap">
 							<div class="card-body">
-								<p class="card-text"> </p>
+								<p class="card-text"></p>
 							</div>
 						</div>
 					</div>
@@ -210,39 +247,6 @@
 							</div>
 						</div>
 					</div>
-					<c:forEach var="board" items="${list }">
-						<div class="col-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="row">
-										<div class="col-sm-6">
-											<h3 class="card-title mb-2">From. ${board.fromWriter }</h3>
-											<h6 class="card-subtitle text-muted">${board.fromDate }</h6>
-										</div>
-										<div class="col-sm-6" align="right">
-											<form id="frm" name="frm" action="fromBoardDelete.do"
-												method="post">
-												<span> <c:if
-														test="${ member.nickname eq board.fromWriter }">
-														<button type="submit" class="btn btn-sm btn-outline-light">
-															<i class="far fa-trash-alt"></i>
-														</button>
-													</c:if>
-												</span> <input type="hidden" name="fromno" value="${board.fromNo }">
-												<input type="hidden" name="nickname"
-													value="${board.fromWriter }">
-											</form>
-										</div>
-									</div>
-								</div>
-								<!-- <img class="img-fluid" src="../assets/images/card-img.jpg"
-									alt="Card image cap"> -->
-								<div class="card-body">
-									<p class="card-text">${board.fromContent }</p>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
 				</div>
 			</div>
 			<c:if test="${ member.author eq 'STAR' }">

@@ -9,10 +9,10 @@
 <body>
 	<br><br>
 		<p align="middle">
-			<iframe width="450" height="300"
+			<iframe width="800" height="500"
 				src="https://www.youtube.com/embed/-1CxQjBnqP0" frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>&nbsp;
-				<iframe width="450" height="300"
+				<iframe width="800" height="500"
 				src="https://www.youtube.com/embed/XO0nrmk7Du8" frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
 		</p>
