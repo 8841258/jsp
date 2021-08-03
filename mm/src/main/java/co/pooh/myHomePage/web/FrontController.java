@@ -38,6 +38,7 @@ import co.pooh.myHomePage.command.Logout;
 import co.pooh.myHomePage.command.MemberAccount;
 import co.pooh.myHomePage.command.MemberInsert;
 import co.pooh.myHomePage.command.MemberInsertForm;
+import co.pooh.myHomePage.command.MemberManage;
 import co.pooh.myHomePage.command.ToBoardDelete;
 import co.pooh.myHomePage.command.ToBoardInsert;
 import co.pooh.myHomePage.command.ToBoardList;
