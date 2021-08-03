@@ -3,7 +3,7 @@
 <!-- navbar -->
 <!-- ============================================================== -->
 <div class="dashboard-header">
-	<nav class="navbar navbar-expand-lg bg-white fixed-top">
+	<nav class="navbar navbar-expand-lg bg-white2 fixed-top">
 		<a class="navbar-brand" href="home.do"><img src="assets/images/mmlogo.png" width="190" height="50"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"

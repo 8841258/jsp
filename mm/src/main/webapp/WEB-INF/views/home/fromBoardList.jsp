@@ -25,8 +25,8 @@
 	<div class="navbar bg-white breadcrumb-bar border-bottom">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">From. Mad
-						Monster</a></li>
+				<li class="breadcrumb-item"><h2><a href="fromBoardList.do"><br>From. Mad
+						Monster</a></h2></li>
 			</ol>
 		</nav>
 	</div>

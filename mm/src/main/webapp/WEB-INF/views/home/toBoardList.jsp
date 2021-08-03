@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="../assets/libs/css/style.css">
 <link rel="stylesheet"
 	href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-<title>From.MM</title>
+<title>To.MM</title>
 </head>
 
 <body class="chat-body">
@@ -25,8 +25,8 @@
 	<div class="navbar bg-white breadcrumb-bar border-bottom">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">to. Mad
-						Monster</a></li>
+				<li class="breadcrumb-item"><h2><a href="toBoardList.do"><br>To. Mad
+						Monster</a></h2></li>
 			</ol>
 		</nav>
 	</div>
