@@ -38,7 +38,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="board" items="${list }">
-								<tr onclick="getRecord(${board.freeNo})">
+								<tr class="cursor_test" onclick="getRecord(${board.freeNo})">
 									<th scope="row"><!-- ${board.freeNo } --><p align="middle">·</p></th>
 									<td><span>${board.freeTitle }</span><span
 										class="badge badge-secondary float-right">${board.freeCnum }</span></td>

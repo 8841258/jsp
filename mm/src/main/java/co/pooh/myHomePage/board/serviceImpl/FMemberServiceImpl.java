@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import co.pooh.myHomePage.board.service.FMemberService;
 import co.pooh.myHomePage.common.DAO;
@@ -95,7 +97,7 @@ public class FMemberServiceImpl implements FMemberService {
 
 	@Override
 	public FMemberVO memberAccount(FMemberVO vo) {
-		sql = "select id, name, nickname, email from fmember where id = ?";
+		sql = "select id, name, nickname, email, author from fmember where id = ?";
 		try {
 			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
@@ -106,10 +108,37 @@ public class FMemberServiceImpl implements FMemberService {
 				vo.setNickname(rs.getString("nickname"));
 				vo.setName(rs.getString("name"));
 				vo.setEmail(rs.getString("email"));
+				vo.setAuthor(rs.getString("author"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return vo;
+	}
+
+	@Override
+	public List<FMemberVO> memberSelectList() {
+		List<FMemberVO> list = new ArrayList<FMemberVO>();
+		sql = "select * from fmember";
+		FMemberVO vo;
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				vo = new FMemberVO();
+				vo.setId(rs.getString("id"));
+				vo.setNickname(rs.getString("nickname"));
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setAuthor(rs.getString("author"));
+				vo.setState(rs.getString("state").charAt(0));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }

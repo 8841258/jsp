@@ -8,10 +8,7 @@
 	<div class="row">
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 			<div class="page-header">
-				<h2 class="pageheader-title">자유 게시판</h2>
-				<p class="pageheader-text">
-					여러분이 하고 싶은 말을 자유롭게 남겨주세요!<br>욕설 및 비방성 게시글은 삼가주세요.
-				</p>
+				<h2 class="pageheader-title">회원 관리</h2>
 			</div>
 		</div>
 	</div>
@@ -35,13 +32,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="board" items="${list }">
+							<c:forEach var="member" items="${list }">
 								<tr>
-									<th scope="row">·</th>
-									<td align="center">${board.freeTitle }</td>
-									<td align="center">${board.freeDate }</td>
-									<td align="center">${board.freeWriter }</td>
-									<td align="center">${board.hit }</td>
+									<td scope="row">${member.id }</td>
+									<td scope="row">${member.nickname }</td>
+									<td scope="row">${member.name }</td>
+									<td scope="row">${member.email }</td>
+									<td scope="row">${member.author }</td>
+									<td scope="row">${member.state }</td>
 								</tr>
 							</c:forEach>
 						</tbody>

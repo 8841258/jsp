@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,10 @@
 					<ul class="list-unstyled mb-0">
 						<li class="mb-2"><i class="fas fa-fw fa-id-badge mr-2"></i>${account.name }</li>
 						<li class="mb-2"><i class="fas fa-fw fa-envelope mr-2"></i>${account.email }</li>
-						<li class="mb-0"><i class="fas fa-fw fas fa-cut mr-2"></i><span class="text-danger" onclick="location.href='deleteAccountForm.do'">탈퇴하기</span></li>
+						<c:if test="${account.author eq 'ADMIN' }">
+						<li class="mb-2"><i class="fas fa-cog"></i><span class="cursor_test" onclick="location.href='memberManage.do'">&nbsp;&nbsp;&nbsp;<mark>회원관리</mark></span></li>
+						</c:if>
+						<li class="mb-0"><i class="fas fa-fw fas fa-cut mr-2"></i><span class="text-danger cursor_test" onclick="location.href='deleteAccountForm.do'">탈퇴하기</span></li>
 					</ul>
 				</div>
 			</div>
