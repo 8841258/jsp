@@ -13,7 +13,7 @@ import co.pooh.myHomePage.board.vo.FromBoardVO;
 import co.pooh.myHomePage.common.DAO;
 
 public class FromBoardServiceImpl implements FromBoardService {
-	
+
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rs;
@@ -93,5 +93,48 @@ public class FromBoardServiceImpl implements FromBoardService {
 		}
 		return r;
 	}
+
+	public int plusLike(FromBoardVO vo) {
+		
+		String SQL = "update fromboard set like=like+1 where fromno=?";
+
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(SQL);
+
+			psmt.setInt(1, vo.getFromNo());
+			psmt.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return 1;
+
+	}
+	
+	public int minusLike(FromBoardVO vo) {
+		
+		String SQL = "update fromboard set like=like-1 where fromno=?";
+
+		try {
+			conn = DAO.getConnection();
+			psmt = conn.prepareStatement(SQL);
+
+			psmt.setInt(1, vo.getFromNo());
+			psmt.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return -1;
+
+	}
+	
 
 }

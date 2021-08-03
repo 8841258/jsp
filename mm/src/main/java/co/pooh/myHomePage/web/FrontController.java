@@ -87,6 +87,7 @@ public class FrontController extends HttpServlet {
 		map.put("/fromBoardListi.do", new FromBoardListi());
 		map.put("/fromBoardDelete.do", new FromBoardDelete());
 		map.put("/fromBoardListd.do", new FromBoardListd());
+		map.put("/memberManage.do", new MemberManage());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

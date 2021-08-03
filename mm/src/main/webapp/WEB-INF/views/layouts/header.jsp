@@ -25,7 +25,9 @@
 							<span class="status"></span><span class="ml-2">Available</span>
 						</div>
 						<a class="dropdown-item" href="memberAccount.do"><i class="fas fa-user mr-2"></i>Account</a>
-						<a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+						<!-- 권한이 있으면 보이게 해야함 -->
+						<a class="dropdown-item" href="memberManage.do"><i class="fas fa-cog mr-2"></i>Management</a>
+						
 						<a class="dropdown-item" href="logout.do"><i
 							class="fas fa-power-off mr-2"></i>Logout</a>
 					</div></li>

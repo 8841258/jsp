@@ -10,4 +10,6 @@ public interface FromBoardService {
 	int fromBoardInsert(FromBoardVO vo);
 	
 	int fromBoardDelete(FromBoardVO vo);
+	
+	
 }

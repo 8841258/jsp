@@ -6,8 +6,8 @@
 		<!-- basic table -->
 		<!-- ============================================================== -->
 		<div class="col-12">
-			<form enctype="multipart/form-data" name="frm"
-				action="freeBoardInsert.do" method="get">
+			<form name="frm"
+				action="freeBoardInsert.do" method="post">
 				<div class="card">
 					<h5 class="card-header">자유 게시판</h5>
 					<div class="card-body">
@@ -19,10 +19,6 @@
 							<textarea class="form-control"
 								id="freecontent" name="freecontent" rows="10"
 								placeholder="여기에 내용을 입력하세요"></textarea>
-						</div>
-						<div class="custom-file mb-3">
-							<input type="file"  id="customFile">
-							
 						</div>
 					</div>
 				</div>
