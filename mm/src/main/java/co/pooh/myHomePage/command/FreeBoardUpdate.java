@@ -18,7 +18,9 @@ public class FreeBoardUpdate implements Command {
 		vo.setFreeTitle(request.getParameter("freetitle"));
 		vo.setFreeContent(request.getParameter("freecontent"));
 		dao.freeBoardUpdate(vo);
-		request.setAttribute("freeno", (Object) vo.getFreeNO());
+		request.setAttribute("freeno", (Object) vo.getFreeNo());
+		System.out.println(request.getParameter("freeno"));
+		System.out.println(vo.getFreeNO());
 		return "freeBoardSelectbu.do";
 	}
 
