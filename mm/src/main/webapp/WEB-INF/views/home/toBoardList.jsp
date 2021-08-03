@@ -33,6 +33,26 @@
 	<div class="content-container">
 		<div class="chat-module">
 			<div class="chat-module-top">
+			<c:if test="${ member.author eq 'USER' }">
+				<div class="chat-module-bottom">
+					<form class="chat-form" id="frm" name="frm"
+						action="toBoardInsert.do" method="post">
+						<textarea class="form-control" id="tocontent" name="tocontent"
+							placeholder="Type message" rows="1"></textarea>
+						<div class="chat-form-buttons">
+							<button type="submit" class="btn btn-link">
+								<i class="far fa-smile"></i>
+							</button>
+							<div class="custom-file custom-file-naked">
+								<input type="file" class="custom-file-input" id="customFile">
+								<label class="custom-file-label" for="customFile"> <i
+									class="fas fa-paperclip"></i>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</c:if>
 				<div class="chat-module-body">
 					<c:forEach var="board" items="${list }">
 						<div class="media chat-item">

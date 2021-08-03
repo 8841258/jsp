@@ -26,6 +26,7 @@ public class FromBoardList implements Command {
 		list = dao.fromBoardSelectList();
 		request.setAttribute("list", list);
 		request.setAttribute("member", vo);
+		System.out.println(vo.getAuthor());
 		
 		return "home/fromBoardList";
 	}
