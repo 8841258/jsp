@@ -119,7 +119,7 @@ public class FMemberServiceImpl implements FMemberService {
 	@Override
 	public List<FMemberVO> memberSelectList() {
 		List<FMemberVO> list = new ArrayList<FMemberVO>();
-		sql = "select * from fmember";
+		sql = "select * from fmember order by author, id";
 		FMemberVO vo;
 		try {
 			conn = DAO.getConnection();

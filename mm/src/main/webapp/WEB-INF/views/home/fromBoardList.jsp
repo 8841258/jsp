@@ -39,22 +39,18 @@
 						Mad Monster</a>
 				</c:if>
 				<c:if test="${ member.author eq 'STAR' }">
-						<form class="chat-form" id="frm" name="frm"
-							action="fromBoardInsert.do" method="post">
-							<textarea class="form-control" id="fromcontent"
-								name="fromcontent" placeholder="Type message" rows="1"></textarea>
-							<div class="chat-form-buttons">
+					<form class="chat-form" id="frm" name="frm"
+						action="fromBoardInsert.do" method="post">
+						<textarea class="form-control" id="fromcontent" name="fromcontent"
+							placeholder="Type message" rows="1"></textarea>
+						<div class="chat-form-buttons">
+							<div class="custom-file custom-file-naked">
 								<button type="submit" class="btn btn-link">
 									<i class="far fa-smile"></i>
 								</button>
-								<div class="custom-file custom-file-naked">
-									<input type="file" class="custom-file-input" id="customFile">
-									<label class="custom-file-label" for="customFile"> <i
-										class="fas fa-paperclip"></i>
-									</label>
-								</div>
 							</div>
-						</form>
+						</div>
+					</form>
 				</c:if>
 				<div class="chat-module-body">
 					<c:forEach var="board" items="${list }">

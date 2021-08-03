@@ -7,15 +7,21 @@
 <title>Home</title>
 </head>
 <body>
-	<br><br>
-		<p align="middle">
-			<iframe width="800" height="500"
-				src="https://www.youtube.com/embed/-1CxQjBnqP0" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>&nbsp;
-				<iframe width="800" height="500"
-				src="https://www.youtube.com/embed/XO0nrmk7Du8" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-		</p>
+	<br>
+	<br>
+	<div align="center">
+		<img src="assets/images/mmlogo.png" width="1000" height="250">
+	</div>
+	<br>
+	<p align="middle">
+		<iframe width="800" height="500"
+			src="https://www.youtube.com/embed/-1CxQjBnqP0" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+		&nbsp;
+		<iframe width="800" height="500"
+			src="https://www.youtube.com/embed/XO0nrmk7Du8" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+	</p>
 
 	<div align="center" class="border-top user-social-box">
 		<br>

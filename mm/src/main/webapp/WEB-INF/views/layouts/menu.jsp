@@ -17,13 +17,13 @@
 					<li class="nav-item"><a class="nav-link" onclick="location.href='home.do'"
 						data-toggle="collapse" aria-expanded="false"
 						data-target="#submenu-2" aria-controls="submenu-2"><i
-							class="fa fa-fw fa-user-circle"></i>HOME</a></li>
+							class="fa fa-fw fa-home"></i>HOME</a></li>
 
 					<li class="nav-item"><a class="nav-link" href="toBoardList.do"><i
-							class="fas fa-fw fa-chart-pie"></i>To.MM</a></li>
+							class="fas fa-fw fa-heart"></i>To.MM</a></li>
 
 					<li class="nav-item "><a class="nav-link" href=fromBoardList.do><i
-							class="fab fa-fw fa-wpforms"></i>From.MM</a></li>
+							class="fas fa-fw fa-star"></i>From.MM</a></li>
 
 					<li class="nav-item"><a class="nav-link" href="freeBoardList.do"><i
 							class="fas fa-fw fa-table"></i>Free Board</a></li>

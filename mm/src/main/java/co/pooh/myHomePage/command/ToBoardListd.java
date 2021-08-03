@@ -23,6 +23,7 @@ public class ToBoardListd implements Command {
 		FMemberVO vo = new FMemberVO();
 		HttpSession session = request.getSession();	
 		vo.setAuthor((String) session.getAttribute("author"));
+		vo.setNickname((String) session.getAttribute("nickname"));
 		request.setAttribute("member", vo);
 		
 		int n = (int) request.getAttribute("tono");

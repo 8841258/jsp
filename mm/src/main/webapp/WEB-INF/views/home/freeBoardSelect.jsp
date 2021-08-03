@@ -139,7 +139,7 @@ ${board.freeCwriter } : ${board.freeCcontent } : ${board.freeCdate }<br>
 							</c:if>
 						</div>
 						<br>
-						<div>${board.freeCcontent }</div>
+						<div>${fn:replace(board.freeCcontent, replaceChar, "<br/>") }</div>
 					</div>
 				</c:forEach>
 			</div>

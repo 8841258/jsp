@@ -23,6 +23,7 @@ public class FromBoardListd implements Command {
 		FMemberVO vo = new FMemberVO();
 		HttpSession session = request.getSession();	
 		vo.setNickname((String) session.getAttribute("nickname"));
+		vo.setAuthor((String) session.getAttribute("author"));
 		request.setAttribute("member", vo);
 		
 		int n = (int) request.getAttribute("fromno");
