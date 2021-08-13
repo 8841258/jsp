@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(() => {
+		$.ajax({
+			url: "../ItemListServlet.do",
+			dataType: 'json',
+			success: (result) => {
+				console.log(result);
+				itemListFnc(result);
+			},
+			error: () => {}
+		});
+		
+		//폼 전송버튼 누르면 실행(이벤트, 기능)
+		$('#frm').on('submit', (event) => {
+			console.log('submit');
+			let s = $('#frm').serialize();
+			console.log(s);
+			event.preventDefault(); //기본적으로 실행되는 것을 막음
+
+			//폼전송 처리
+			$.ajax({
+				url: $('#frm').attr('action'), //"../AddItemServlet.do"
+				method: 'POST',
+				data: $('#frm').serialize(),
+				dataType: 'json',
+				success: addItemFnc,
+				error: (reject) => {
+					console.error(reject);
+				}
+			});
+			
+		})
+		
+		$('#btnDel').on('click', (event) => {
+			console.log('되냐');
+			//event.preventDefault();
+			
+			$.ajax({
+				url: "../DeleteItemServlet.do",
+				method: "POST",
+				data: $('#itemNo').val(),
+				dataType: 'text',
+				success: deleteItemFnc,
+				error: () => {console.log("에러 발생")}
+			})
+			
+		})
+		
+	});
+	
+	
+	let fields = ['itemNo', 'itemName', 'itemDesc', 'likeIt', 'price'];
+	
+	//리스트 조회 후 콜백함수.
+	function itemListFnc(data) {
+	let table = $('<table />').attr('border', '1');
+		let trth = $('<tr />')
+		for (let f of fields) {
+			let th = $('<th />').text(f);
+			$(trth).append(th);
+		}
+		
+		$(table).append(trth);
+		
+		for (let i=0; i<data.length; i++) {
+			let tr = $('<tr />');
+			for(let field of fields) {
+				let td = $('<td />').text(data[i][field]);
+				$(tr).append(td);
+			}
+			let td2 = $('<td />')
+			let btn = $('<button />').attr({'type':'button', 'id':'btnDel'}).text('삭제');
+			$(td2).append(btn)
+			$(tr).append(td2);
+			$(table).append(tr);
+		}
+		$('#show').append(table);
+	}
+	
+	//입력 처리 후 콜백 함수
+	function addItemFnc(data) {
+		let tr = $('<tr />');
+		for(let field of fields) {
+			let td = $('<td />').text(data[field]);
+			$(tr).append(td);
+		}
+		$('table').append(tr);
+	}
+	
+	function deleteItemFnc(data) {
+		$(this).parent().parent().remove();
+	}
+	
+</script>
+</head>
+<body>
+	<div>
+		<form id="frm" action="../AddItemServlet.do" method="POST">
+			ItemNo: <input type="text" id="itemNo" name="itemNo" value="C010"><br> ItemName:
+			<input type="text" name="itemName" value="자몽에이드"><br> ItemDesc: <input
+				type="text" name="itemDesc" value="맛있는 자몽에이드"><br> LikeIt: <input
+				type="text" name="likeIt" value="4.0"><br> Price: <input
+				type="text" name="price" value="5300"><br> PriceOff: <input
+				type="text" name="priceOff" value="4500"><br> Image: <input
+				type="file" name="image" value="grapefruit.jpg"><br> <input type="submit"
+				value="저장">&nbsp;&nbsp;<input type="reset" value="취소">
+		</form>
+	</div>
+	<div><h3>상품 리스트</h3></div>
+	<div id="show">
+		
+	</div>
+</body>
+</html>
