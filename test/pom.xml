@@ -28,6 +28,13 @@
 			<version>19.11.0.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.7</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -46,7 +53,7 @@
 					<release>${java.version}</release>
 				</configuration>
 			</plugin>
-			
+
 			<plugin> <!-- 런타임 플러그인(배포시) -->
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.3</version>

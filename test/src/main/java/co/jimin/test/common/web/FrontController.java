@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +32,20 @@ public class FrontController extends HttpServlet {
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
+		String path = request.getServletPath();
+		
+		Command command = map.get(path);
+		
+		String page = command.execute(request, response);
+		
+		if (!page.endsWith(".do")) {
+			page = "/WEB-INF/views/" + page + ".jsp";
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+		dispatcher.forward(request, response);
 		
 	}
 
