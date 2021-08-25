@@ -20,7 +20,6 @@ public class ItemListServlet extends HttpServlet {
         super();
     }
 
-    //
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/json;charset=utf-8");
