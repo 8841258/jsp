@@ -17,7 +17,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias alias="Author" type="domain.blog.Author" />
+		<typeAlias alias="MemberVO" type="co.jimin.test.vo.MemberVO" />
 	</typeAliases>
 
 	<environments default="development">

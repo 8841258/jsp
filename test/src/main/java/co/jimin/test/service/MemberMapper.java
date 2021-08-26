@@ -7,6 +7,8 @@ import co.jimin.test.vo.MemberVO;
 public interface MemberMapper {
 	List<MemberVO> memberSelect();
 	
+	MemberVO memberSelectOne(MemberVO vo);
+	
 	int memberInsert(MemberVO vo);
 	
 	int memberUpdate(MemberVO vo);
