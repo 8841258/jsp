@@ -7,16 +7,21 @@
 <meta charset="UTF-8">
 <title>시험과 과제</title>
 <style>
-	
-
-	.dataTr:hover {
-		cursor: pointer;
-		background-color: #efefef;
-	}
-
+.dataTr:hover {
+	cursor: pointer;
+	background-color: #efefef;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
 	
 	//조회 버튼
@@ -54,12 +59,16 @@
 			dataType: 'json',
 			data: param,
 			success: function(result) {
-				alert('성공');
-				console.log(result);
-				selectListFnc(result);
+				if (result.length > 0) {
+					alert('등록되었습니다.');
+					console.log(result);
+					selectListFnc(result);			
+				} else {
+					alert('db에 등록은 되었으나 화면에 추가 X');
+				}
 			},
 			error: function() {
-				alert('ajax 에러');
+				alert('ajax 에러, db등록 X, 화면추가 X');
 			}
 		})
 		
@@ -67,29 +76,75 @@
 	
 	//삭제 버튼
 	$(document).on('click', '#deleteMemberBtn', function() {
-		if ($('#memberId') == "") {
+		if ($('#memberId').val() == "") {
 			alert('먼저 삭제할 데이터를 선택하세요.');
 		} else {
+			let delNum = $('#resultTable').children('#'+$('#memberNo').val());
+			console.log(delNum);
 			let delete_confirm = confirm('삭제하시겠습니까?');
 			if (delete_confirm) {
-				alert('삭제되었습니다.');
+				$.ajax({
+					url: 'DeleteMemberServlet',
+					type: 'POST',
+					data: {memberNo : $('#memberNo').val()},
+					dataType: 'text',
+					success: function(result) {
+						if (result = 1) {
+							alert('삭제되었습니다.');
+							delNum.remove();
+						}
+					}
+				})
+				
 			}
-			
 		}
+		
 	});
 	
+	//수정 버튼
+	$(document).on('click', '#updateMemberBtn', function() {
+		if ($('#memberId').val() == "") {
+			alert('수정할 id를 입력하세요.');
+		} else {
+			let update_confirm = confirm('수정하시겠습니까?');
+			if (update_confirm) {
+				let param = $('#frm').serialize();
+				$.ajax({
+					url: 'UpdateMemberServlet',
+					type: 'POST',
+					data: param,
+					dataType: 'json',
+					success: updateFnc,
+					error: function(result) {
+						alert('ajax 에러');
+					}
+				})
+			}
+		}
+		
+	})
+	
+	//업데이트 function
+	function updateFnc(data) {
+		let updateTd = $('#resultTable').children('#'+$('#memberNo').val()).children();
+		console.log(updateTd);
+		console.log($(updateTd).eq(1));
+		$(updateTd).eq(1).text(data.memberName);
+		$(updateTd).eq(2).text(data.memberPhone);
+		$(updateTd).eq(3).text(data.memberAddr);
+		$(updateTd).eq(4).text(data.memberBirth);
+	}
 	
 	//table의 tr 첫줄, th(헤더) 표시되는 곳
 	function selectListHeaderFnc() {
 		let trTag_1 = $('<tr />');
-		let thTag_0 = $('<th />')
 		let thTag_1 = $('<th />').text('아이디(이메일)');
 		let thTag_2 = $('<th />').text('이름');
 		let thTag_3 = $('<th />').text('연락처');
 		let thTag_4 = $('<th />').text('주소');
 		let thTag_5 = $('<th />').text('생년월일');
 		
-		$(trTag_1).append(thTag_0, thTag_1, thTag_2, thTag_3, thTag_4, thTag_5);
+		$(trTag_1).append(thTag_1, thTag_2, thTag_3, thTag_4, thTag_5);
 		$('#resultTable').append(trTag_1);
 	}
 	
@@ -98,7 +153,8 @@
 		let trTag_2 = $('<tr />').addClass('dataTr').attr('id', data.memberNo);
 		//데이터 한 줄을 클릭하면 인풋박스에 값을 넣는다.
 		$(trTag_2).on('click', function() {
-			console.log($(this).attr('id'));
+			let memberNo = $(this).attr('id');
+			console.log(memberNo);
 			$.ajax({
 				url: 'SelectOneMemberServlet',
 				type: 'POST',
@@ -111,33 +167,52 @@
 					$('#memberAddr').val(result.memberAddr);
 					//알맞은 형식이 아니라서 오류가 뜨는 곳
 					$('#memberBirth').val(result.memberBirth);
+					$('#memberNo').val(memberNo);
 				}
 			});
 			
 		})
-		let tdTag_0 = $('<td />');
-		let chkBox = $('<input />').attr({'type':'checkbox', 'id':data.memberNo}).addClass('chkBox');
-		$(tdTag_0).append(chkBox);
+
 		let tdTag_1 = $('<td />').text(data.memberId);
 		let tdTag_2 = $('<td />').text(data.memberName);
 		let tdTag_3 = $('<td />').text(data.memberPhone);
 		let tdTag_4 = $('<td />').text(data.memberAddr);
 		let tdTag_5 = $('<td />').text(data.memberBirth);
-		$(trTag_2).append(tdTag_0, tdTag_1, tdTag_2, tdTag_3, tdTag_4, tdTag_5);
+		$(trTag_2).append(tdTag_1, tdTag_2, tdTag_3, tdTag_4, tdTag_5);
 		$('#resultTable').append(trTag_2);
 	}
+	
+	function dateFormat(test) {
+		let idx = test.indexOf(" ", 0);
+		let month = test.substring(0, idx-1);
+		let idx2 = test.indexOf(",", 0);
+		let day = test.substring(idx+1, idx2);
+		let year = test.substring(idx2+2);
+		let fullDay;
+		if (month < 10) {
+			fullDay = year+"-0" + month+"-"+day;
+		} else {
+			fullDay = year+"-"+month+"-"+day;
+		}
+		return new Date(fullDay);
+	}
+
 </script>
 </head>
 
 <body>
-	<div align="center">
-		<div>
+	<div class="container">
+	<div class="row">
+		<h3>윤지민</h3>
+	</div>
+		<div class="row">
 			<form id="frm" name="frm">
-				<table border="1">
+				<table border="1" class="table">
 					<tr>
+
 						<th>아이디(이메일)</th>
-						<td><input type="email" id="memberId" name="memberId"
-							required></td>
+						<td><input type="hidden" id="memberNo" name="memberNo">
+							<input type="email" id="memberId" name="memberId" required></td>
 					</tr>
 					<tr>
 						<th>이름</th>
@@ -163,16 +238,16 @@
 
 		</div>
 
-		<br> <br>
-		<button type="button" id="insertMemberBtn" name="insertMemberBtn">등록</button>
-		<button type="button" id="selectMemberBtn" name="selectMemberBtn">조회</button>
-		<button type="button" id="updateMemberBtn" name="updateMemberBtn">수정</button>
-		<button type="button" id="deleteMemberBtn" name="deleteMemberBtn">삭제</button>
-		<br> <br> <br>
-		<div>
-			<table id="resultTable" border="1">
+		<div class="row text-center p-3">
+		<button type="button" id="insertMemberBtn" name="insertMemberBtn" class="btn btn-outline-dark">등록</button>
+		<button type="button" id="selectMemberBtn" name="selectMemberBtn" class="btn btn-outline-dark">조회</button>
+		<button type="button" id="updateMemberBtn" name="updateMemberBtn" class="btn btn-outline-dark">수정</button>
+		<button type="button" id="deleteMemberBtn" name="deleteMemberBtn" class="btn btn-outline-dark">삭제</button>
+		</div>
+		
+		<div class="row p-3">
+			<table id="resultTable" class="table" border="1">
 			</table>
-
 		</div>
 	</div>
 

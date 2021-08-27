@@ -8,13 +8,14 @@ public class MemberVO {
 	private String memberName;
 	private String memberPhone;
 	private String memberAddr;
+	private Date memberBirth;
+	
 	public int getMemberNo() {
 		return memberNo;
 	}
 	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
 	}
-	private Date memberBirth;
 	public String getMemberId() {
 		return memberId;
 	}
