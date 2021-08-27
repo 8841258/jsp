@@ -18,9 +18,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-	//폼에 입력된 값들
-	let param = $('#frm').serialize();
-	console.log(param);
 	
 	//조회 버튼
 	$(document).on('click', '#selectMemberBtn', function() {
@@ -47,53 +44,67 @@
 	
 	//입력 버튼
 	$(document).on('click', '#insertMemberBtn', function() {
+		//폼에 입력된 값들
+		let param = $('#frm').serialize();
 		console.log(param);
+		
 		$.ajax({
 			url: 'InsertMemberServlet',
 			type: 'POST',
-			data: param,
 			dataType: 'json',
+			data: param,
 			success: function(result) {
-				if (result.length > 0) {
-					alert('등록되었습니다.');
-					selectListFnc(result);
-				} else {
-					alert('오류가 발생했습니다.');
-				}
+				alert('성공');
+				console.log(result);
+				selectListFnc(result);
 			},
 			error: function() {
-				alert('ajax 오류');
+				alert('ajax 에러');
 			}
 		})
 		
+	});
+	
+	//삭제 버튼
+	$(document).on('click', '#deleteMemberBtn', function() {
+		if ($('#memberId') == "") {
+			alert('먼저 삭제할 데이터를 선택하세요.');
+		} else {
+			let delete_confirm = confirm('삭제하시겠습니까?');
+			if (delete_confirm) {
+				alert('삭제되었습니다.');
+			}
+			
+		}
 	});
 	
 	
 	//table의 tr 첫줄, th(헤더) 표시되는 곳
 	function selectListHeaderFnc() {
 		let trTag_1 = $('<tr />');
+		let thTag_0 = $('<th />')
 		let thTag_1 = $('<th />').text('아이디(이메일)');
 		let thTag_2 = $('<th />').text('이름');
 		let thTag_3 = $('<th />').text('연락처');
 		let thTag_4 = $('<th />').text('주소');
 		let thTag_5 = $('<th />').text('생년월일');
 		
-		$(trTag_1).append(thTag_1, thTag_2, thTag_3, thTag_4, thTag_5);
+		$(trTag_1).append(thTag_0, thTag_1, thTag_2, thTag_3, thTag_4, thTag_5);
 		$('#resultTable').append(trTag_1);
 	}
 	
 	//for문 안에 들어갈 조회 데이터들
 	function selectListFnc(data) {
-		let trTag_2 = $('<tr />').addClass('dataTr').attr('id', data.memberId);
+		let trTag_2 = $('<tr />').addClass('dataTr').attr('id', data.memberNo);
 		//데이터 한 줄을 클릭하면 인풋박스에 값을 넣는다.
 		$(trTag_2).on('click', function() {
+			console.log($(this).attr('id'));
 			$.ajax({
 				url: 'SelectOneMemberServlet',
 				type: 'POST',
 				data: {memberId : data.memberId},
 				dataType: 'json',
 				success: function(result) {
-					console.log(result);
 					$('#memberId').val(result.memberId);
 					$('#memberName').val(result.memberName);
 					$('#memberPhone').val(result.memberPhone);
@@ -102,13 +113,17 @@
 					$('#memberBirth').val(result.memberBirth);
 				}
 			});
+			
 		})
+		let tdTag_0 = $('<td />');
+		let chkBox = $('<input />').attr({'type':'checkbox', 'id':data.memberNo}).addClass('chkBox');
+		$(tdTag_0).append(chkBox);
 		let tdTag_1 = $('<td />').text(data.memberId);
 		let tdTag_2 = $('<td />').text(data.memberName);
 		let tdTag_3 = $('<td />').text(data.memberPhone);
 		let tdTag_4 = $('<td />').text(data.memberAddr);
 		let tdTag_5 = $('<td />').text(data.memberBirth);
-		$(trTag_2).append(tdTag_1, tdTag_2, tdTag_3, tdTag_4, tdTag_5);
+		$(trTag_2).append(tdTag_0, tdTag_1, tdTag_2, tdTag_3, tdTag_4, tdTag_5);
 		$('#resultTable').append(trTag_2);
 	}
 </script>

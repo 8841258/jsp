@@ -3,10 +3,17 @@ package co.jimin.test.vo;
 import java.sql.Date;
 
 public class MemberVO {
+	private int memberNo;
 	private String memberId;
 	private String memberName;
 	private String memberPhone;
 	private String memberAddr;
+	public int getMemberNo() {
+		return memberNo;
+	}
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
 	private Date memberBirth;
 	public String getMemberId() {
 		return memberId;
@@ -40,9 +47,10 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", memberPhone=" + memberPhone
-				+ ", memberAddr=" + memberAddr + ", memberBirth=" + memberBirth + "]";
+		return "MemberVO [memberNo=" + memberNo + ", memberId=" + memberId + ", memberName=" + memberName
+				+ ", memberPhone=" + memberPhone + ", memberAddr=" + memberAddr + ", memberBirth=" + memberBirth + "]";
 	}
+
 	
 	
 }

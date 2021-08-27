@@ -12,7 +12,7 @@
   </select>
   
   <insert id="memberInsert" parameterType="MemberVO">
-  		insert into member values(#{memberId}, #{memberName}, #{memberPhone}, #{memberAddr}, #{memberBirth})
+  		insert into member values(m_seq.nextval, #{memberId}, #{memberName}, #{memberPhone}, #{memberAddr}, #{memberBirth})
   </insert>
   
   <update id="memberUpdate" parameterType="MemberVO">
@@ -25,7 +25,7 @@
   </update>
   
   <delete id="memberDelete" parameterType="MemberVO">
-  		delete member where member_id = #{memberId}
+  		delete member where member_no = #{memberNo}
   </delete>
   
 </mapper>

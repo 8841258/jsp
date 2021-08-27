@@ -30,25 +30,31 @@ public class InsertMemberServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setCharacterEncoding("utf-8");
-//		response.setContentType("text/json;charset=utf-8");
-//		
-//		MemberService dao = new MemberServiceImpl();
-//		MemberVO vo = new MemberVO();
-//		
-//		vo.setMemberId(request.getParameter("memberId"));
-//		vo.setMemberName(request.getParameter("memberName"));
-//		vo.setMemberPhone(request.getParameter("memberPhone"));
-//		vo.setMemberAddr(request.getParameter("memberAddr"));
-//		vo.setMemberBirth(Date.valueOf(request.getParameter("memberBirth")));
-//		
-//		dao.memberInsert(vo);
-//		
-//		dao.memberSelectOne(vo);
-//		
-//		Gson gson = new GsonBuilder().create();
-//		
-//		response.getWriter().print(gson.toJson(vo));
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/json;charset=utf-8");
+		
+		MemberService dao = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+		
+		vo.setMemberId(request.getParameter("memberId"));
+		vo.setMemberName(request.getParameter("memberName"));
+		vo.setMemberPhone(request.getParameter("memberPhone"));
+		vo.setMemberAddr(request.getParameter("memberAddr"));
+		vo.setMemberBirth(Date.valueOf(request.getParameter("memberBirth")));
+		
+		dao.memberInsert(vo);
+		
+		System.out.println(vo);
+		
+		dao.memberSelectOne(vo);
+		
+		System.out.println(vo);
+		
+		System.out.println(vo.getMemberNo());
+		
+		Gson gson = new GsonBuilder().create();
+		
+		response.getWriter().print(gson.toJson(vo));
 		
 	}
 
