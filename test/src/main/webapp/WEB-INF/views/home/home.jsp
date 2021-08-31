@@ -59,13 +59,10 @@
 			dataType: 'json',
 			data: param,
 			success: function(result) {
-				if (result.length > 0) {
+					//result가 object라서 result.length는 안 먹히는 것 같다.
 					alert('등록되었습니다.');
-					console.log(result);
 					selectListFnc(result);			
-				} else {
-					alert('db에 등록은 되었으나 화면에 추가 X');
-				}
+
 			},
 			error: function() {
 				alert('ajax 에러, db등록 X, 화면추가 X');
